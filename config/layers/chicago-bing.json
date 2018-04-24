@@ -1,0 +1,48 @@
+{
+    "identifier": "chicago-bing",
+    "label": "Chicago - Bing Maps",
+    "description": "Area of Chicago using data from Bing Maps.",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "chicago-bing-aerial-epsg900913",
+            "label": "Chicago, Aerial",
+            "description": "Photo coverage of Chicago, in EPSG:900913. Images provided by Bing Maps.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "aerial",
+            "format": "image/jpeg",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "EPSG:900913:14",
+                        "minTileCol": 8397,
+                        "maxTileCol": 8397,
+                        "minTileRow": 12177,
+                        "maxTileRow": 12177
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:15",
+                        "minTileCol": 16794,
+                        "maxTileCol": 16795,
+                        "minTileRow": 24354,
+                        "maxTileRow": 24355
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:16",
+                        "minTileCol": 33588,
+                        "maxTileCol": 33591,
+                        "minTileRow": 48708,
+                        "maxTileRow": 48711
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:17",
+                        "minTileCol": 67176,
+                        "maxTileCol": 67183,
+                        "minTileRow": 97416,
+                        "maxTileRow": 97423
+                    }
+                ]
+            }
+        }
+    ]
+}

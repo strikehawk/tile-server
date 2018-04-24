@@ -1,0 +1,167 @@
+{
+    "identifier": "paris-osm",
+    "label": "Paris - Open Street Map",
+    "description": "OpenStreetMap data over Paris, using 'Dark' theme from MapBox.",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "paris-osm-dark-mapbox-png",
+            "label": "Paris OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Paris, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "0",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 0,
+                        "maxTileCol": 0
+                    },
+                    {
+                        "tileMatrix": "1",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 1,
+                        "maxTileCol": 1
+                    },
+                    {
+                        "tileMatrix": "2",
+                        "minTileRow": 1,
+                        "maxTileRow": 1,
+                        "minTileCol": 2,
+                        "maxTileCol": 2
+                    },
+                    {
+                        "tileMatrix": "3",
+                        "minTileRow": 2,
+                        "maxTileRow": 2,
+                        "minTileCol": 4,
+                        "maxTileCol": 4
+                    },
+                    {
+                        "tileMatrix": "4",
+                        "minTileRow": 5,
+                        "maxTileRow": 5,
+                        "minTileCol": 8,
+                        "maxTileCol": 8
+                    },
+                    {
+                        "tileMatrix": "5",
+                        "minTileRow": 10,
+                        "maxTileRow": 11,
+                        "minTileCol": 16,
+                        "maxTileCol": 16
+                    },
+                    {
+                        "tileMatrix": "6",
+                        "minTileRow": 21,
+                        "maxTileRow": 22,
+                        "minTileCol": 32,
+                        "maxTileCol": 32
+                    },
+                    {
+                        "tileMatrix": "7",
+                        "minTileRow": 43,
+                        "maxTileRow": 44,
+                        "minTileCol": 64,
+                        "maxTileCol": 64
+                    },
+                    {
+                        "tileMatrix": "8",
+                        "minTileRow": 87,
+                        "maxTileRow": 88,
+                        "minTileCol": 129,
+                        "maxTileCol": 129
+                    },
+                    {
+                        "tileMatrix": "9",
+                        "minTileRow": 175,
+                        "maxTileRow": 176,
+                        "minTileCol": 258,
+                        "maxTileCol": 259
+                    },
+                    {
+                        "tileMatrix": "10",
+                        "minTileRow": 351,
+                        "maxTileRow": 353,
+                        "minTileCol": 517,
+                        "maxTileCol": 519
+                    },
+                    {
+                        "tileMatrix": "11",
+                        "minTileRow": 703,
+                        "maxTileRow": 706,
+                        "minTileCol": 1035,
+                        "maxTileCol": 1039
+                    },
+                    {
+                        "tileMatrix": "12",
+                        "minTileRow": 1406,
+                        "maxTileRow": 1412,
+                        "minTileCol": 2070,
+                        "maxTileCol": 2079
+                    },
+                    {
+                        "tileMatrix": "13",
+                        "minTileRow": 2812,
+                        "maxTileRow": 2824,
+                        "minTileCol": 4141,
+                        "maxTileCol": 4158
+                    },
+                    {
+                        "tileMatrix": "14",
+                        "minTileRow": 5624,
+                        "maxTileRow": 5649,
+                        "minTileCol": 8282,
+                        "maxTileCol": 8316
+                    },
+                    {
+                        "tileMatrix": "15",
+                        "minTileRow": 11249,
+                        "maxTileRow": 11298,
+                        "minTileCol": 16564,
+                        "maxTileCol": 16633
+                    },
+                    {
+                        "tileMatrix": "16",
+                        "minTileRow": 22498,
+                        "maxTileRow": 22597,
+                        "minTileCol": 33128,
+                        "maxTileCol": 33266
+                    },
+                    {
+                        "tileMatrix": "17",
+                        "minTileRow": 44996,
+                        "maxTileRow": 45195,
+                        "minTileCol": 66256,
+                        "maxTileCol": 66533
+                    },
+                    {
+                        "tileMatrix": "18",
+                        "minTileRow": 89992,
+                        "maxTileRow": 90391,
+                        "minTileCol": 132513,
+                        "maxTileCol": 133067
+                    },
+                    {
+                        "tileMatrix": "19",
+                        "minTileRow": 179985,
+                        "maxTileRow": 180782,
+                        "minTileCol": 265027,
+                        "maxTileCol": 266134
+                    },
+                    {
+                        "tileMatrix": "20",
+                        "minTileRow": 359970,
+                        "maxTileRow": 361564,
+                        "minTileCol": 530055,
+                        "maxTileCol": 532268
+                    }
+                ]
+            }
+        }
+    ]
+}

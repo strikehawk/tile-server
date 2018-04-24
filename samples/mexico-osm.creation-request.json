@@ -1,0 +1,18 @@
+{
+    "identifier": "mexico-osm",
+    "label": "Mexico City - Open Street Map",
+    "description": "OpenStreetMap data over Mexico City, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
+    "wgs84Extent": [-99.27, 19.31, -98.97, 19.53],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "mexico-osm-dark-mapbox-png",
+            "label": "Mexico OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Mexico City, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png"
+        }
+    ]
+}

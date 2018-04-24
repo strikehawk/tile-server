@@ -1,0 +1,16 @@
+{
+    "identifier": "L8_OLI_TIRS",
+    "label": "Afghanistan Landsat",
+    "description": "Photo coverage of Kabul and Bagram regions. Images provided by Landsat.",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "l8_oli_tirs-default-epsg4326",
+            "label": "Kabul & Bagram area, LANDSAT",
+            "description": "Photo coverage of Kabul and Bagram regions, in EPSG:4326. Images provided by Landsat.",
+            "tileMatrixSet": "EPSG:4326",
+            "style": "default",
+            "format": "image/png"
+        }
+    ]
+}

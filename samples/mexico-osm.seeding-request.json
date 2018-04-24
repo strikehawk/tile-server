@@ -1,0 +1,7 @@
+{
+    "layerDefinition": "mexico-osm",
+    "cacheIdentifier": "mexico-osm-dark-mapbox-png",
+    "mapSource": "mapbox-dark",
+    "startZoom": 0,
+    "endZoom": 11
+}

@@ -1,0 +1,13 @@
+﻿{
+    "identifier": "afghanistan-landsat-home",
+    "label": "Afghanistan Landsat (Home)",
+    "wgs84Extent": [ 67.37, 33.53, 71.47, 35.67 ],
+    "type": "WMS",
+    "version": "1.1.0",
+    "url": "http://gaia:8080/geoserver/holomaps/wms",
+    "layers": "holomaps:L8_OLI_TIRS",
+    "additionalParameters": "&transparent=true",
+    "supportedFormats": [
+        "image/png"
+    ]
+}
