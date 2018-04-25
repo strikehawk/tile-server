@@ -2,5 +2,5 @@
 /dist/
 /yarn-error.log
 /debug.log
-/data/
 /coverage/
+/.env
