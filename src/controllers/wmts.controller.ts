@@ -59,14 +59,19 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
             res.status(400).send("Format cannot be empty.");
         }
 
-        const tileInfos: tiles.TileInfos = catalog.wmtsService.getTileInfos(layer, style,
-            tileMatrixSetIdentifier, tileMatrixIdentifier, tileRow, tileCol, format);
+        try {
+            const tileInfos: tiles.TileInfos = catalog.wmtsService.getTileInfos(layer, style,
+                tileMatrixSetIdentifier, tileMatrixIdentifier, tileRow, tileCol, format);
 
-        if (!fs.existsSync(tileInfos.path)) {
-            res.sendStatus(404);
+            if (!fs.existsSync(tileInfos.path)) {
+                res.sendStatus(404);
+            } else {
+                res.download(tileInfos.path);
+            }
+        } catch (e) {
+            res.sendStatus(500).send(e);
         }
 
-        res.download(tileInfos.path);
     });
 
     return router;

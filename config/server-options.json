@@ -3,7 +3,6 @@
     "mapSourcesPath": "D:\\Projects\\tile-server\\config\\map-sources",
     "tileMatrixSetsPath": "D:\\Projects\\tile-server\\config\\tile-matrix-sets",
     "layersPath": "D:\\Projects\\tile-server\\config\\layers",
-    "bingMapsKey": "Ar0mcvqRbs8-LjcZxRhvk7fwCkk-I2qHZ8ASp_g6pi4IfhIN4vGdakImGVuZX4tF",
     "mimeTypes": [
         {
             "internalName": "PNG",

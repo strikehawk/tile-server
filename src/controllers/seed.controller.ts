@@ -12,10 +12,14 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
 
     // start seeding according to received options
     router.post("/", (req: Request, res: Response) => {
-        // start seeding
-        catalog.tileDownloader.seed(req.body);
+        try {
+            // start seeding
+            catalog.tileDownloader.seed(req.body);
 
-        res.sendStatus(200);
+            res.sendStatus(200);
+        } catch (e) {
+            res.status(500).send(e);
+        }
     });
 
     // TODO: Should be moved to layer-controller
