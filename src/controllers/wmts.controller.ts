@@ -69,7 +69,7 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
                 res.download(tileInfos.path);
             }
         } catch (e) {
-            res.sendStatus(500).send(e);
+            res.status(500).send(e);
         }
 
     });
