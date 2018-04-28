@@ -22,6 +22,19 @@ import * as seedRouter from "./controllers/seed.controller";
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: ".env" });
 
+/**
+ * Setup service catalog
+ */
+const serviceCatalog: ServiceCatalog = new ServiceCatalog(__dirname);
+
+/**
+ * Validate the presence of every mandatory config values
+ */
+if (!serviceCatalog.configService.validateConfiguration()) {
+  console.log("Configuration is incorrect. Application cannot run.");
+  process.exit(1);
+}
+
 // Create Express server
 const app = express();
 const port: number | string = process.env.PORT || 3000;
