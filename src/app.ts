@@ -72,9 +72,13 @@ if (app.get("env") !== "production") {
 }
 
 /**
- * Setup service catalog
+ * Setup CORS
  */
-const serviceCatalog: ServiceCatalog = new ServiceCatalog(__dirname);
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Controllers (route handlers)
 rootController.registerRoutes(app, serviceCatalog);
