@@ -70,7 +70,47 @@ export class MimeTypeService {
     }
 
     private _loadMimeTypes(): void {
+        const defaults: tiles.MimeType[] = [
+            {
+                internalName: "PNG",
+                type: "image/png",
+                fileExtension: "png"
+            },
+            {
+                internalName: "JPEG",
+                type: "image/jpeg",
+                fileExtension: "jpg"
+            },
+            {
+                internalName: "Bil 32",
+                type: "application/bil32",
+                fileExtension: "bil32"
+            },
+            {
+                internalName: "Bil 16",
+                type: "application/bil16",
+                fileExtension: "bil16"
+            }
+        ];
+
+        // load default types
+        for (const t of defaults) {
+            this._types.set(t.internalName.toLowerCase(), t);
+            this._typesByType.set(t.type.toLowerCase(), t);
+            this._typesByExtension.set(t.fileExtension.toLowerCase(), t);
+        }
+
+        if (!this._options.mimeTypes) {
+            // return if no additional mime-types are specified
+            return;
+        }
+
         for (const t of this._options.mimeTypes) {
+            if (this._types.has(t.internalName.toLowerCase())) {
+                logger.warn(`A mime-type with internal name '${t.internalName}' was already registered.`);
+                continue;
+            }
+
             try {
                 this._types.set(t.internalName.toLowerCase(), t);
                 this._typesByType.set(t.type.toLowerCase(), t);

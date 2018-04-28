@@ -2,27 +2,5 @@
     "cacheRoot": "D:\\WmtsServer\\Cache",
     "mapSourcesPath": "D:\\Projects\\tile-server\\config\\map-sources",
     "tileMatrixSetsPath": "D:\\Projects\\tile-server\\config\\tile-matrix-sets",
-    "layersPath": "D:\\Projects\\tile-server\\config\\layers",
-    "mimeTypes": [
-        {
-            "internalName": "PNG",
-            "type": "image/png",
-            "fileExtension": "png"
-        },
-        {
-            "internalName": "JPEG",
-            "type": "image/jpeg",
-            "fileExtension": "jpg"
-        },
-        {
-            "internalName": "Bil 32",
-            "type": "application/bil32",
-            "fileExtension": "bil32"
-        },
-        {
-            "internalName": "Bil 16",
-            "type": "application/bil16",
-            "fileExtension": "bil16"
-        }
-    ]
+    "layersPath": "D:\\Projects\\tile-server\\config\\layers"
 }

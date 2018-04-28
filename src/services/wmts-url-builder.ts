@@ -29,6 +29,10 @@ export class WmtsUrlBuilder implements UrlBuilder {
         url = url.replace("{TileRow}", tile.xyz[1].toString());
         url = url.replace("{ZoomLevel}", tile.xyz[2].toString());
 
+        // API keys
+        url = url.replace("{BingMapsApiKey}", process.env.BING_MAPS_API_KEY);
+        url = url.replace("{MapBoxApiKey}", process.env.MAPBOX_API_KEY);
+
         return url;
     }
 }
