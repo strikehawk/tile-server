@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "paris-osm",
+    "cacheIdentifier": "paris-osm-dark-mapbox-png",
+    "mapSource": "mapbox-dark",
+    "startZoom": 17,
+    "endZoom": 18,
+    "bbox": {
+        "lowerCorner": [2.25, 48.81],
+        "upperCorner": [2.421, 48.903],
+        "crs": "EPSG:4326"
+    }
+}

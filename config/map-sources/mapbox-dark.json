@@ -3,15 +3,17 @@
     "label": "MapBox Dark Theme",
     "type": "WMTS",
     "format": "image/png",
-    "urlPattern": "https://api.mapbox.com/v4/mapbox.dark/{TileMatrix}/{TileCol}/{TileRow}.png?access_token=pk.eyJ1Ijoic3RyaWtlaGF3ayIsImEiOiJjamc2Z255bXkwYXp0MndxdHBxeGRnbnk0In0._m1D31oh71_HBhHFpdHC6g",
-    "tileMatrixSet": "Jawg.io",
+    "urlPattern": "https://api.mapbox.com/v4/mapbox.dark/{ZoomLevel}/{TileCol}/{TileRow}.png?access_token={MapBoxApiKey}",
+    "tileMatrixSet": "EPSG:900913",
     "supportedTiledMatrix": [
         11,
         12,
         13,
         14,
         15,
-        16
+        16,
+        17,
+        18
     ],
     "supportedZoomLevels": [
         11,
@@ -19,6 +21,8 @@
         13,
         14,
         15,
-        16
+        16,
+        17,
+        18
     ]
 }

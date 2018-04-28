@@ -2,6 +2,11 @@
     "layerDefinition": "mexico-osm",
     "cacheIdentifier": "mexico-osm-dark-mapbox-png",
     "mapSource": "mapbox-dark",
-    "startZoom": 0,
-    "endZoom": 11
+    "startZoom": 17,
+    "endZoom": 18,
+    "bbox": {
+        "lowerCorner": [-99.17, 19.36],
+        "upperCorner": [-99.07, 19.48],
+        "crs": "EPSG:4326"
+    }
 }

@@ -38,6 +38,29 @@ export class ComputingService {
     }
 
     /**
+     * Convert a BoundingBox to the equivalent extent. If the CRS of the BoundingBox is not specified,
+     * it is assumed to be the same as the target projection (thus requiring no conversion).
+     * @param bbox The BoundingBox to convert.
+     * @param targetProjection The target projection identifier, eg "EPSG:4326".
+     * @returns An extent expressed in the target projection
+     */
+    public convertBboxToExtent(bbox: wmts.BoundingBox, targetProjection: string): tiles.Extent {
+        if (!bbox) {
+            throw new Error("Bounding box cannot be null.");
+        }
+
+        if (!targetProjection) {
+            throw new Error("Target projection cannot be empty.");
+        }
+
+        // create extent from bbox
+        const extent: tiles.Extent = [bbox.lowerCorner[0], bbox.lowerCorner[1], bbox.upperCorner[0], bbox.upperCorner[1]];
+
+        // convert the extent (if needed)
+        return this._convertExtent(extent, bbox.crs || targetProjection, targetProjection);
+    }
+
+    /**
      * Converts an extent expressed in WGS84 coordinates into its equivalent in a different projection.
      * @param extent The extent to convert.
      * @param targetProjection The target projection identifier, eg "EPSG:4326".
@@ -57,14 +80,24 @@ export class ComputingService {
             return extent;
         }
 
-        // try to resolve the target projection
-        const srs = this._srsSvc.getSrs(targetProjection);
-        if (!srs) {
-            throw new Error(`Unknown SRS '${targetProjection}'.`);
+        return this._convertExtent(extent, "EPSG:4326", targetProjection);
+    }
+
+    private _convertExtent(extent: tiles.Extent, sourceProjection: string, targetProjection: string): tiles.Extent {
+        // try to resolve the projections
+        const sourceSrs = this._srsSvc.getSrs(sourceProjection);
+        if (!sourceProjection) {
+            throw new Error(`Unknown source projection '${sourceProjection}'.`);
         }
 
-        const sourceProj: proj.InterfaceProjection = proj.Proj("EPSG:4326");
-        const targetProj: proj.InterfaceProjection = proj.Proj(srs.identifiers[0].toUpperCase());
+        const targetSrs = this._srsSvc.getSrs(targetProjection);
+        if (!targetSrs) {
+            throw new Error(`Unknown target projection '${targetProjection}'.`);
+        }
+
+        // TODO: Use better mechanism for handling projection indentifiers
+        const sourceProj: proj.InterfaceProjection = proj.Proj(sourceSrs.identifiers[0].toUpperCase());
+        const targetProj: proj.InterfaceProjection = proj.Proj(targetSrs.identifiers[0].toUpperCase());
         const srcLowerCorner: tiles.GeoLocation = [extent[0], extent[1]];
         const srcUpperCorner: tiles.GeoLocation = [extent[2], extent[3]];
 
@@ -72,5 +105,6 @@ export class ComputingService {
         const tgtUpperCorner: proj.InterfaceCoordinates = proj.transform(sourceProj, targetProj, srcUpperCorner);
 
         return [tgtLowerCorner.x, tgtLowerCorner.y, tgtUpperCorner.x, tgtUpperCorner.y];
+
     }
 }

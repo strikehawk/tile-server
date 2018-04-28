@@ -72,14 +72,10 @@ export class TileDownloader {
 
         const urlBuilder = this._urlBuilderFactory.getUrlBuilder(mapSource);
 
-        if (!request.extent && cache.tileMatrixSet.supportedCRS === "EPSG:4326" && mapSource.wgs84Extent) {
-            request.extent = mapSource.wgs84Extent;
-        }
-
         const startZoom: number = typeof request.startZoom === "number" && !isNaN(request.startZoom) ? request.startZoom : 0;
         const endZoom: number = typeof request.endZoom === "number" && !isNaN(request.endZoom) ? request.endZoom : cache.tileMatrixSet.tileMatrix.length - 1;
 
-        const iterationRequest = this._tileIterationRequestFactory.createRequest(layerDef, cache, startZoom, endZoom);
+        const iterationRequest = this._tileIterationRequestFactory.createRequest(layerDef, cache, startZoom, endZoom, request.bbox);
         const seedTask = new SeedTask(request, this._getSeedTaskDescription(request, cache));
 
         this._runningTasks.set(seedTask.id, seedTask);

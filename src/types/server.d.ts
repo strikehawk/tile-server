@@ -257,9 +257,10 @@ declare namespace tiles {
         mapSource: string;
 
         /**
-         * The extent of the tile cache. Must be a subset of the TileMatrixSet coverage.
+         * The bounding box covered by the seed request. The actual extent will be the 
+         * intersection of this extent with the extent of the TileMatrixSet.
          */
-        extent: tiles.Extent;
+        bbox?: wmts.BoundingBox;
 
         /**
          * The zoom level to begin seeding at.

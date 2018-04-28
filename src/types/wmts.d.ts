@@ -2,6 +2,10 @@ declare namespace wmts {
     interface BoundingBox {
         lowerCorner: tiles.GeoLocation,
         upperCorner: tiles.GeoLocation
+
+        /**
+         * If not specified, the projection of the TileMatrixSet is assumed.
+         */
         crs?: string;
     }
 

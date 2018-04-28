@@ -40,7 +40,7 @@ export class ServiceCatalog {
         this.filePathGenerator = new FilePathGenerator(this.configService.options);
         this.wmtsService = new WmtsService(this.tileMatrixSetService, this.mimeTypeService, this.layerService, this.filePathGenerator);
 
-        this.tileIterationRequestFactory = new TileIterationRequestFactory();
+        this.tileIterationRequestFactory = new TileIterationRequestFactory(this.computingService);
         this.urlBuilderFactory = new UrlBuilderFactory();
         this.tileDownloader = new TileDownloader(this.mapSourceService, this.urlBuilderFactory, this.layerService,
             this.tileIterationRequestFactory, this.filePathGenerator);

@@ -2,11 +2,14 @@ import { WmtsLayerDefinition } from "../server/wmts-layer-definition";
 import { WmtsLayerCache } from "../server/wmts-layer-cache";
 import { TileMatrixSetLimits } from "../ogc/tile-matrix-set-limits";
 import { TileIterationRequest } from "../server/tile-iteration-request";
+import { ComputingService } from "./computing.service";
 
 export class TileIterationRequestFactory {
+    constructor(private _computingSvc: ComputingService) { }
+
     public createRequest(layer: WmtsLayerDefinition, cache: WmtsLayerCache,
         startZoom: number, endZoom: number,
-        limits?: TileMatrixSetLimits,
+        bbox?: wmts.BoundingBox,
         parameters?: Map<string, string>): TileIterationRequest {
         if (!layer) {
             throw new Error("Layer cannot be null.");
@@ -36,27 +39,16 @@ export class TileIterationRequestFactory {
             throw new Error("End zoom shall be superior to start zoom.");
         }
 
+        let limits: TileMatrixSetLimits;
+
+        if (bbox) {
+            // convert bbox to extent
+            const extent: tiles.Extent = this._computingSvc.convertBboxToExtent(bbox, cache.tileMatrixSet.supportedCRS);
+
+            // get the TileMatrixSet of the cache
+            limits = cache.tileMatrixSet.createLimits(extent);
+        }
+
         return new TileIterationRequest(layer, cache, limits, startZoom, endZoom, parameters);
-    }
-
-    private _createRequest(
-        layer: WmtsLayerDefinition,
-        cacheIdentifier: string, startZoom: number, endZoom: number,
-        limits?: TileMatrixSetLimits,
-        parameters?: Map<string, string>): TileIterationRequest {
-        if (!layer) {
-            throw new Error("Layer cannot be null.");
-        }
-
-        if (!cacheIdentifier) {
-            throw new Error("Cache identifier cannot be empty.");
-        }
-
-        const cache: WmtsLayerCache = layer.getCache(cacheIdentifier);
-        if (!cache) {
-            throw new Error(`Could not find Cache '${cacheIdentifier}'.`);
-        }
-
-        return this.createRequest(layer, cache, startZoom, endZoom, limits, parameters);
     }
 }
