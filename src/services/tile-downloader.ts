@@ -1,6 +1,5 @@
 import fs from "fs-extra";
 import path from "path";
-import async from "async";
 import axios from "axios";
 
 import logger from "../util/logger";
