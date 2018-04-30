@@ -11,6 +11,7 @@ import { WmtsLayerCache } from "../server/wmts-layer-cache";
 import { MapSourceService } from "./map-source.service";
 import { TileMatrixSet } from "../ogc/tile-matrix-set";
 import { ComputingService } from "./computing.service";
+import { FilePathGenerator } from "../server/file-path-generator";
 
 export class LayerService {
     private _layers: Map<string, WmtsLayerDefinition>;
@@ -19,7 +20,8 @@ export class LayerService {
         private _tmsSvc: TileMatrixSetService,
         private _mapSourceSvc: MapSourceService,
         private _mimeTypeSvc: MimeTypeService,
-        private _computingSvc: ComputingService) {
+        private _computingSvc: ComputingService,
+        private _filePathGenerator: FilePathGenerator) {
         this._layers = new Map<string, WmtsLayerDefinition>();
         this._loadLayers();
     }
@@ -105,6 +107,15 @@ export class LayerService {
         // create a new layer definition, and add it to the map
         const layerDef = new WmtsLayerDefinition(options, this._tmsSvc, this._mimeTypeSvc);
         this._layers.set(layerDef.identifier, layerDef);
+    }
+
+    public async clearLayerCache(identifier: string): Promise<void> {
+        if (!identifier) {
+            throw new Error("Identifier cannot be empty.");
+        }
+
+        const folderPath = this._filePathGenerator.getLayerPath(identifier);
+        await fs.remove(folderPath);
     }
 
     private _loadLayers(): void {

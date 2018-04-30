@@ -12,6 +12,7 @@ import { FilePathGenerator } from "../server/file-path-generator";
 import { WmtsService } from "./wmts.service";
 import { TileIterationRequestFactory } from "./tile-iteration-request-factory";
 import { UrlBuilderFactory } from "./url-builder-factory";
+import { SeedingService } from "./seeding.service";
 import { TileDownloader } from "./tile-downloader";
 
 export class ServiceCatalog {
@@ -26,6 +27,7 @@ export class ServiceCatalog {
     public readonly wmtsService: WmtsService;
     public readonly tileIterationRequestFactory: TileIterationRequestFactory;
     public readonly urlBuilderFactory: UrlBuilderFactory;
+    public readonly seedingService: SeedingService;
     public readonly tileDownloader: TileDownloader;
 
     constructor(rootPath: string) {
@@ -36,13 +38,14 @@ export class ServiceCatalog {
         this.tileMatrixSetService = new TileMatrixSetService(this.configService.options, this.srsService);
         this.mapSourceService = new MapSourceService(this.configService.options);
         this.layerService = new LayerService(this.configService.options, this.tileMatrixSetService, this.mapSourceService,
-            this.mimeTypeService, this.computingService);
+            this.mimeTypeService, this.computingService, this.filePathGenerator);
         this.filePathGenerator = new FilePathGenerator(this.configService.options);
         this.wmtsService = new WmtsService(this.tileMatrixSetService, this.mimeTypeService, this.layerService, this.filePathGenerator);
 
         this.tileIterationRequestFactory = new TileIterationRequestFactory(this.computingService);
         this.urlBuilderFactory = new UrlBuilderFactory();
-        this.tileDownloader = new TileDownloader(this.mapSourceService, this.urlBuilderFactory, this.layerService,
+        this.seedingService = new SeedingService(this.computingService, this.mapSourceService, this.urlBuilderFactory, this.layerService,
             this.tileIterationRequestFactory, this.filePathGenerator);
+        this.tileDownloader = new TileDownloader(this.seedingService);
     }
 }

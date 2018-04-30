@@ -240,6 +240,8 @@ declare namespace tiles {
         mimeType: MimeType;
     }
 
+    export type SeedingMode = "overwrite" | "missing";
+
     interface SeedRequest {
         /**
          * The unique identifier of the layer definition to seed.
@@ -255,6 +257,13 @@ declare namespace tiles {
          * The unique identifier of the map source to use to acquire the tiles.
          */
         mapSource: string;
+
+        /**
+         * The behavior of the seeding process. When set to "overwrite", all the tiles of the requested range are downloaded, and existing files are overwritten.
+         * When set to "missing", only the missing tiles are downloaded.
+         * @default "overwrite"
+         */
+        seedingMode?: SeedingMode;
 
         /**
          * The bounding box covered by the seed request. The actual extent will be the 
@@ -275,11 +284,53 @@ declare namespace tiles {
         endZoom?: number;
     }
 
-    interface SeedTaskDescription {
+    interface TileSummary {
+        /**
+         * The URL to fetch the tile.
+         */
+        url: string;
+
+        /**
+         * The full path to the tile file.
+         */
+        filePath: string;
+    }
+
+    interface SeedingTaskSummary {
+        /**
+         * The friendly name of the layer being seeded.
+         */
+        layer: string;
+
+        /**
+         * The friendly name of the cache being seeded.
+         */
+        cache: string;
+
         /**
          * The number of tiles to seed. Computed from the specified TileMatrixSet and potential limits.
          */
         tileCount: number;
+
+        /**
+         * Number of tiles successfully downloaded so far.
+         */
+        tilesDownloaded: number;
+
+        /**
+         * Number of tiles in error so far.
+         */
+        tilesInError: number;
+        
+        /**
+         * Number of remaining tiles to download.
+         */
+        remainingTiles: number;
+
+        /**
+         * The overall progress of the seeding task.
+         */
+        progress: number;
 
         /**
          * The estimated size of the cache in bytes. An average of tile size is used.

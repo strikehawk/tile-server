@@ -94,33 +94,24 @@ export class WmtsLayerDefinition {
         return tmp.length !== 0 ? tmp[0] : null;
     }
 
-    public *iterateTiles(request: TileIterationRequest): Iterable<TileObject> {
-        if (!request) {
-            throw new Error("Request cannot be empty.");
+    public *iterateTiles(cache: WmtsLayerCache, startZoom: number, endZoom: number, tmsLimits?: TileMatrixSetLimits): Iterable<TileObject> {
+        if (!cache) {
+            throw new Error("Cache cannot be null.");
         }
 
-        const cache: WmtsLayerCache = request.layerCache;
         let matrix: TileMatrix;
-        let limits: TileMatrixLimits;
         let minCol: number;
         let minRow: number;
         let maxCol: number;
         let maxRow: number;
         let tile: TileObject;
-        const requestLimits: TileMatrixSetLimits = request.tileMatrixSetLimits;
-        const cacheLimits: TileMatrixSetLimits = cache.tileMatrixSetLimits;
-        const tmsLimits: TileMatrixSetLimits = TileMatrixSetLimits.intersect(cacheLimits, requestLimits);
-        let tmLimits: Map<string, TileMatrixLimits> = null;
-        if (tmsLimits) {
-            tmLimits = new Map<string, TileMatrixLimits>(<[string, TileMatrixLimits][]>
-                tmsLimits.tileMatrixLimits.map(o => [o.tileMatrix, o]));
-        }
+        let limits: TileMatrixLimits;
 
-        for (let z: number = request.startZoom; z <= request.endZoom; z++) {
+        for (let z: number = startZoom; z <= endZoom; z++) {
             matrix = cache.tileMatrixSet.tileMatrix[z];
             limits = null;
-            if (tmLimits) {
-                limits = tmLimits.get(matrix.identifier);
+            if (tmsLimits) {
+                limits = tmsLimits.tileMatrixLimits[z];
             }
 
             minCol = limits != null ? limits.minTileCol : 0;
@@ -129,7 +120,8 @@ export class WmtsLayerDefinition {
             maxRow = limits != null ? limits.maxTileRow : matrix.matrixHeight - 1;
             for (let y: number = minRow; y <= maxRow; y++) {
                 for (let x: number = minCol; x <= maxCol; x++) {
-                    tile = new TileObject(this.identifier, cache.style, cache.tileMatrixSet.identifier, cache.format, [x, y, z], request.parameters);
+                    // TODO: Parameters are not correctly propagated
+                    tile = new TileObject(this.identifier, cache.style, cache.tileMatrixSet.identifier, cache.format, [x, y, z]);
                     tile.tileMatrixSet = cache.tileMatrixSet;
                     tile.tileMatrix = matrix;
                     yield tile;

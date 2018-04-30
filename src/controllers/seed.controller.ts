@@ -14,9 +14,28 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
     router.post("/", (req: Request, res: Response) => {
         try {
             // start seeding
-            catalog.tileDownloader.seed(req.body);
+            const task = catalog.seedingService.createNewTask(req.body);
+            catalog.tileDownloader.processTask(task);
 
             res.sendStatus(200);
+        } catch (e) {
+            res.status(500).send(e);
+        }
+    });
+
+    // get the number of tiles represented by a given seeding task
+    router.post("/tilecount", (req: Request, res: Response) => {
+        try {
+            res.status(200).send(catalog.seedingService.getTileCount(req.body).toString());
+        } catch (e) {
+            res.status(500).send(e);
+        }
+    });
+
+    // get the summary of all running tasks
+    router.get("/tasks", (req: Request, res: Response) => {
+        try {
+            res.json(catalog.seedingService.getTaskSummaries());
         } catch (e) {
             res.status(500).send(e);
         }
@@ -33,7 +52,7 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
 
         try {
             // start clearing the cache
-            catalog.tileDownloader.clearLayerCache(layer);
+            catalog.layerService.clearLayerCache(layer);
 
             res.sendStatus(200);
         } catch (e) {
