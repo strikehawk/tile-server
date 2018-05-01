@@ -10,7 +10,6 @@ import { SrsService } from "./srs.service";
 import { MapSourceService } from "./map-source.service";
 import { FilePathGenerator } from "../server/file-path-generator";
 import { WmtsService } from "./wmts.service";
-import { TileIterationRequestFactory } from "./tile-iteration-request-factory";
 import { UrlBuilderFactory } from "./url-builder-factory";
 import { SeedingService } from "./seeding.service";
 import { TileDownloader } from "./tile-downloader";
@@ -25,7 +24,6 @@ export class ServiceCatalog {
     public readonly layerService: LayerService;
     public readonly filePathGenerator: FilePathGenerator;
     public readonly wmtsService: WmtsService;
-    public readonly tileIterationRequestFactory: TileIterationRequestFactory;
     public readonly urlBuilderFactory: UrlBuilderFactory;
     public readonly seedingService: SeedingService;
     public readonly tileDownloader: TileDownloader;
@@ -42,10 +40,9 @@ export class ServiceCatalog {
         this.filePathGenerator = new FilePathGenerator(this.configService.options);
         this.wmtsService = new WmtsService(this.tileMatrixSetService, this.mimeTypeService, this.layerService, this.filePathGenerator);
 
-        this.tileIterationRequestFactory = new TileIterationRequestFactory(this.computingService);
         this.urlBuilderFactory = new UrlBuilderFactory();
-        this.seedingService = new SeedingService(this.computingService, this.mapSourceService, this.urlBuilderFactory, this.layerService,
-            this.tileIterationRequestFactory, this.filePathGenerator);
+        this.seedingService = new SeedingService(this.computingService, this.mapSourceService, this.urlBuilderFactory,
+            this.layerService, this.filePathGenerator);
         this.tileDownloader = new TileDownloader(this.seedingService);
     }
 }

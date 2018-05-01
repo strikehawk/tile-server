@@ -4,7 +4,7 @@ export class SeedingTask {
     private static _nextTaskId: number = 1;
 
     public id: number;
-    public readonly request: tiles.SeedRequest;
+    public readonly request: tiles.SeedingRequest;
     public readonly tiles: tiles.TileSummary[];
 
     /**
@@ -36,7 +36,7 @@ export class SeedingTask {
     public remainingTiles: number;
     public progress: number;
 
-    constructor(request: tiles.SeedRequest, tiles: tiles.TileSummary[]) {
+    constructor(request: tiles.SeedingRequest, tiles: tiles.TileSummary[]) {
         if (!request) {
             throw new Error("Request cannot be null.");
         }

@@ -6,36 +6,33 @@ declare namespace tiles {
     }
 
     interface ServerOptions {
-        /// <summary>
-        /// The root directory of the cache
-        /// </summary>
+        /**
+         * The root directory of the cache.
+         */
         cacheRoot: string
 
-        /// <summary>
-        /// The directory containing the Map Sources definition files (JSON)
-        /// </summary>
+        /**
+         * The directory containing the Map Sources definition files (JSON).
+         */
         mapSourcesPath: string;
 
-        /// <summary>
-        /// The directory containing the Gridset definition files (XML)
-        /// </summary>
+        /**
+         * The directory containing the Gridset definition files (JSON).
+         */
         tileMatrixSetsPath: string;
 
-        /// <summary>
-        /// The directory containing the Layer definition files (JSON)
-        /// </summary>
+        /**
+         * The directory containing the Layer definition files (JSON).
+         */
         layersPath: string;
 
-        /// <summary>
-        /// The key for Bing Maps APIs
-        /// </summary>
-        bingMapsKey: string;
-
+        /**
+         * Additional mime-types known in addition to the builtin ones.
+         */
         mimeTypes: MimeType[];
     }
 
     export type FilePathScheme = "xyz" | "geowebcache";
-
     
     interface WmtsLayerCacheCreationRequest {
         /**
@@ -242,7 +239,7 @@ declare namespace tiles {
 
     export type SeedingMode = "overwrite" | "missing";
 
-    interface SeedRequest {
+    interface SeedingRequest {
         /**
          * The unique identifier of the layer definition to seed.
          */

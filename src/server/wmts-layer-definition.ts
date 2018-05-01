@@ -9,7 +9,6 @@ import { TileMatrixSetLimits } from "../ogc/tile-matrix-set-limits";
 
 import { TileMatrixSetService } from "../services/tile-matrix-set.service";
 import { MimeTypeService } from "../services/mime-type.service";
-import { TileIterationRequest } from "./tile-iteration-request";
 
 export class WmtsLayerDefinition {
     public static validateOptions(options: tiles.WmtsLayerDefinitionOptions, mimeSvc: MimeTypeService): void {

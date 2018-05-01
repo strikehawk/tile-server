@@ -11,7 +11,6 @@ import { ComputingService } from "./computing.service";
 import { MapSourceService } from "./map-source.service";
 import { UrlBuilderFactory, UrlBuilder } from "./url-builder-factory";
 import { LayerService } from "./layer.service";
-import { TileIterationRequestFactory } from "./tile-iteration-request-factory";
 import { FilePathGenerator } from "../server/file-path-generator";
 import { WmtsLayerDefinition } from "../server/wmts-layer-definition";
 import { TileObject } from "../server/tile-object";
@@ -23,7 +22,6 @@ export class SeedingService {
         private _mapSourceSvc: MapSourceService,
         private _urlBuilderFactory: UrlBuilderFactory,
         private _layerSvc: LayerService,
-        private _tileIterationRequestFactory: TileIterationRequestFactory,
         private _filePathGenerator: FilePathGenerator) {
         this._tasks = new Map<number, SeedingTask>();
     }
@@ -49,13 +47,13 @@ export class SeedingService {
         return this._tasks.get(id);
     }
 
-    public getTileCount(request: tiles.SeedRequest): number {
+    public getTileCount(request: tiles.SeedingRequest): number {
         const seedTask = this._buildTask(request);
 
         return seedTask.tileCount;
     }
 
-    public createNewTask(request: tiles.SeedRequest): SeedingTask {
+    public createNewTask(request: tiles.SeedingRequest): SeedingTask {
         const seedTask = this._buildTask(request);
 
         this._tasks.set(seedTask.id, seedTask);
@@ -74,7 +72,7 @@ export class SeedingService {
         }
     }
 
-    private _buildTask(request: tiles.SeedRequest): SeedingTask {
+    private _buildTask(request: tiles.SeedingRequest): SeedingTask {
         if (!request) {
             throw new Error("Request cannot be null.");
         }
