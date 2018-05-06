@@ -138,15 +138,17 @@ export class WmtsLayerDefinition {
             throw new Error("Cache cannot be null.");
         }
 
-        return {
-            identifier: this.identifier,
-            title: [this.label],
-            abstract: [this.description],
+        const layer: wmts.Layer = {
+            identifier: cache.identifier,
+            title: [cache.label],
+            abstract: [cache.description],
             style: [{ identifier: cache.style, isDefault: true }],
             format: [cache.format.type],
             tileMatrixSetLink: [cache.getTileMatrixSetLink().serialize()],
             resourceUrl: [this._getResourceUrl(baseUrl, cache.format)]
         };
+
+        return layer;
     }
 
     public getWmtsLayers(baseUrl: string): wmts.Layer[] {
@@ -160,7 +162,7 @@ export class WmtsLayerDefinition {
     public serialize(): tiles.WmtsLayerDefinitionOptions {
         return {
             identifier: this.identifier,
-            label: this.identifier,
+            label: this.label,
             description: this.description,
             filePathScheme: this.filePathScheme,
             caches: this.caches.map(o => o.serialize())
@@ -176,7 +178,7 @@ export class WmtsLayerDefinition {
             throw new Error("Mime-type cannot be null.");
         }
 
-        const s: string = `${baseUrl}/wmts/{Identifier}/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.${mimeType.fileExtension}`;
+        const s: string = `${baseUrl}/wmts/\{Layer\}/\{Style\}/\{TileMatrixSet\}/\{TileMatrix\}/\{TileRow\}/\{TileCol\}.${mimeType.fileExtension}`;
 
         const resourceUrl: ResourceUrl = new ResourceUrl(mimeType.type, "tile", s);
         return resourceUrl;
