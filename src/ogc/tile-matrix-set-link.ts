@@ -28,7 +28,7 @@ export class TileMatrixSetLink {
     public serialize(): wmts.TileMatrixSetLink {
         return {
             tileMatrixSet: this.tileMatrixSet.identifier,
-            limits: this.tileMatrixSetLimits.serialize()
+            limits: this.tileMatrixSetLimits && this.tileMatrixSetLimits.serialize()
         };
     }
 }
