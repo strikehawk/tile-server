@@ -1,0 +1,32 @@
+block append scripts
+    script.
+        var layers = !{ JSON.stringify(layers) };
+        var tileMatrixSets = !{ JSON.stringify(tileMatrixSets) }
+
+mixin layer-block(layer, layerIdx)
+    div(class="panel panel-default")
+        .panel-heading
+            div
+                label #{layer.label}
+                small.pull-right= layer.description
+        .panel-body
+            .cache-row
+                - var cacheIdx = 0;
+                each cache in layer.caches
+                    .container
+                        .row
+                            a(onclick="loadLayer(" + layerIdx + ", " + cacheIdx + ")") #{cache.title[0]}
+                        .row
+                            span TMS: #{cache.tileMatrixSetLink[0].tileMatrixSet}
+                        .row
+                            span Style: #{cache.style[0].identifier}
+                        .row
+                            span Format: #{cache.format}
+                    - cacheIdx++;
+
+- var layerIdx = 0;
+h2 Layers
+each layer in layers
+    +layer-block(layer, layerIdx)
+    - layerIdx++;
+    br

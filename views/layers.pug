@@ -1,3 +1,23 @@
 extends layout
 
+block append styles
+    link(rel='stylesheet', href='/js/lib/ol.css')
+    style(type='text/css').
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+
+        .cache-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+block append scripts
+    script(src='/js/lib/ol.js')
+    script(src='/js/pages/layers.js')
+
 block content
+    div(id="map", class="map")
+
+    include partials/layers/layer-list
