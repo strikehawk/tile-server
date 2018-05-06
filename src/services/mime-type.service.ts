@@ -12,6 +12,10 @@ export class MimeTypeService {
         this._loadMimeTypes();
     }
 
+    public getMimeTypes(): tiles.MimeType[] {
+        return Array.from(this._types.values());
+    }
+
     /**
      * Find a MimeType by its InternalName.
      * @param name The internal name of the MimeType.
