@@ -33,30 +33,37 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
 
         if (!layer) {
             res.status(400).send("Layer cannot be empty.");
+            return;
         }
 
         if (!style) {
             res.status(400).send("Style cannot be empty.");
+            return;
         }
 
         if (!tileMatrixSetIdentifier) {
             res.status(400).send("TileMatrixSetIdentifier cannot be empty.");
+            return;
         }
 
         if (!tileMatrixIdentifier) {
             res.status(400).send("TileMatrixIdentifier cannot be empty.");
+            return;
         }
 
         if (typeof tileRow !== "number" || isNaN(tileRow)) {
             res.status(400).send("TileRow must be a number.");
+            return;
         }
 
         if (typeof tileCol !== "number" || isNaN(tileCol)) {
             res.status(400).send("TileCol must be a number.");
+            return;
         }
 
         if (!format) {
             res.status(400).send("Format cannot be empty.");
+            return;
         }
 
         try {
@@ -65,11 +72,13 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
 
             if (!fs.existsSync(tileInfos.path)) {
                 res.sendStatus(404);
+                return;
             } else {
                 res.download(tileInfos.path);
             }
         } catch (e) {
             res.status(500).send(e);
+            return;
         }
 
     });
