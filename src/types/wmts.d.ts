@@ -77,7 +77,8 @@ declare namespace wmts {
     }
 
     interface Metadata {
-        // TODO: Implement Metadata
+        minZoom?: number;
+        maxZoom?: number;
     }
 
     interface Style {

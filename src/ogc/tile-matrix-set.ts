@@ -2,6 +2,7 @@ import { SrsService, Srs } from "../services/srs.service";
 import { TileMatrix } from "./tile-matrix";
 import { BoundingBox } from "./bounding-box";
 import { TileMatrixSetLimits } from "./tile-matrix-set-limits";
+import { TileMatrixLimits } from "./tile-matrix-limits";
 
 export class TileMatrixSet implements wmts.TileMatrixSet {
     public readonly identifier: string;
@@ -68,15 +69,23 @@ export class TileMatrixSet implements wmts.TileMatrixSet {
     /**
      * Create a TileMatrixSetLimits for the current TileMatrixSet from an extent.
      * @param extent The extent to restrict the TileMatrixSet coverage by. Extent must be expressed in the same SRS as the TileMatrixSet.
+     * @param minZoom The minimum zoom level covered.
+     * @param maxZoom The maximum zoom level covered.
      * @returns The TileMatrixSetLimits representing the new coverage.
      */
-    public createLimits(extent: tiles.Extent): TileMatrixSetLimits {
+    public createLimits(extent: tiles.Extent, minZoom?: number, maxZoom?: number): TileMatrixSetLimits {
         if (!extent) {
             throw new Error("Extent cannot be null.");
         }
 
         const limits: TileMatrixSetLimits = new TileMatrixSetLimits();
-        limits.tileMatrixLimits = this.tileMatrix.map(o => o.getTileMatrixLimits(extent));
+        const tmLimits: TileMatrixLimits[] = [];
+        let tm: TileMatrix;
+        for (let i: number = typeof minZoom === "number" ? minZoom : 0; i <= (typeof maxZoom === "number" ? maxZoom : this.tileMatrix.length - 1); i++) {
+            tm = this.tileMatrix[i];
+            tmLimits.push(tm.getTileMatrixLimits(extent));
+        }
+        limits.tileMatrixLimits = tmLimits;
 
         return limits;
     }

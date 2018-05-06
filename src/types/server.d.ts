@@ -64,6 +64,18 @@ declare namespace tiles {
          * The mime-type used by the tiles of the cache.
          */
         format: string;
+
+        /**
+         * The minimum zoom level the cache covers.
+         * @default 0
+         */
+        minZoom?: number;
+
+        /**
+         * The maximum zoom level the cache covers.
+         * @default The number of tile matrices in the TileMatrixSet - 1
+         */
+        maxZoom?: number;
     }
 
     interface WmtsLayerCacheOptions extends WmtsLayerCacheCreationRequest {
@@ -88,6 +100,17 @@ declare namespace tiles {
          * A short description of the layer.
          */
         description?: string;
+
+        /**
+         * The identifier of the map source to use.
+         */
+        mapSource: string;
+
+        /**
+         * The extent covered by the layer, in EPSG:4326, using [minx, miny, maxx, maxy] order.
+         * @default The extent of the map source.
+         */
+        wgs84Extent?: tiles.Extent;
 
         /**
          * The file system organization used to store the tiles of the layer.
@@ -212,12 +235,12 @@ declare namespace tiles {
         /**
          * The list of supported {TileMatrix}. Allows to restrict the source to specific zoom level for instance.
          */
-        supportedTiledMatrix: string[];
+        supportedTiledMatrix?: string[];
 
         /**
          * The list of supported {ZoomLevel}. Allows to restrict the source to specific zoom level for instance.
          */
-        supportedZoomLevels: number[];
+        supportedZoomLevels?: number[];
 
         /**
          * The mime-type of the WMTS service.

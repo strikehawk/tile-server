@@ -11,9 +11,13 @@ import { TileMatrixSetService } from "../services/tile-matrix-set.service";
 import { MimeTypeService } from "../services/mime-type.service";
 
 export class WmtsLayerDefinition {
-    public static validateOptions(options: tiles.WmtsLayerDefinitionOptions, mimeSvc: MimeTypeService): void {
+    public static validateOptions(options: tiles.WmtsLayerDefinitionOptions, mimeSvc: MimeTypeService, tileMatrixSetSvc: TileMatrixSetService): void {
         if (!options.identifier) {
             throw new Error("Identifier cannot be empty.");
+        }
+
+        if (!options.mapSource) {
+            throw new Error("Map source identifier cannot be empty.");
         }
 
         // FilePathScheme must be parsable by the FilePathScheme enum
@@ -24,12 +28,12 @@ export class WmtsLayerDefinition {
         // validate each WmtsLayerCache
         if (options.caches) {
             for (const c of options.caches) {
-                WmtsLayerCache.validateOptions(c, mimeSvc);
+                WmtsLayerCache.validateOptions(c, mimeSvc, tileMatrixSetSvc);
             }
         }
     }
 
-    public static validateCreationRequest(request: tiles.WmtsLayerDefinitionCreationRequest, mimeTypeSvc: MimeTypeService): void {
+    public static validateCreationRequest(request: tiles.WmtsLayerDefinitionCreationRequest, mimeTypeSvc: MimeTypeService, tileMatrixSetSvc: TileMatrixSetService): void {
         if (!request.identifier) {
             throw new Error("Identifier cannot be empty.");
         }
@@ -51,13 +55,15 @@ export class WmtsLayerDefinition {
         }
 
         for (const c of request.caches) {
-            WmtsLayerCache.validateCreationRequest(c, mimeTypeSvc);
+            WmtsLayerCache.validateCreationRequest(c, mimeTypeSvc, tileMatrixSetSvc);
         }
     }
 
     public identifier: string;
     public label: string;
     public description: string;
+    public readonly mapSource: string;
+    public readonly wgs84Extent: tiles.Extent;
     public filePathScheme: tiles.FilePathScheme;
     public caches: WmtsLayerCache[];
 
@@ -74,11 +80,13 @@ export class WmtsLayerDefinition {
             throw new Error("MimeTypeService cannot be null.");
         }
 
-        WmtsLayerDefinition.validateOptions(options, mimeSvc);
+        WmtsLayerDefinition.validateOptions(options, mimeSvc, tmsSvc);
 
         this.identifier = options.identifier;
         this.label = options.label ? options.label : this.identifier;
         this.description = options.description;
+        this.mapSource = options.mapSource;
+        this.wgs84Extent = options.wgs84Extent;
         this.filePathScheme = options.filePathScheme;
         this.caches = options.caches.map(o => new WmtsLayerCache(o, tmsSvc, mimeSvc));
     }
@@ -142,6 +150,10 @@ export class WmtsLayerDefinition {
             identifier: cache.identifier,
             title: [cache.label],
             abstract: [cache.description],
+            metadata: [{
+                minZoom: cache.minZoom,
+                maxZoom: cache.maxZoom
+            }],
             style: [{ identifier: cache.style, isDefault: true }],
             format: [cache.format.type],
             tileMatrixSetLink: [cache.getTileMatrixSetLink().serialize()],
@@ -160,13 +172,20 @@ export class WmtsLayerDefinition {
     }
 
     public serialize(): tiles.WmtsLayerDefinitionOptions {
-        return {
+        const options: tiles.WmtsLayerDefinitionOptions = {
             identifier: this.identifier,
             label: this.label,
             description: this.description,
+            mapSource: this.mapSource,
             filePathScheme: this.filePathScheme,
             caches: this.caches.map(o => o.serialize())
         };
+
+        if (this.wgs84Extent) {
+            options.wgs84Extent = this.wgs84Extent;
+        }
+
+        return options;
     }
 
     private _getResourceUrl(baseUrl: string, mimeType: tiles.MimeType): ResourceUrl {

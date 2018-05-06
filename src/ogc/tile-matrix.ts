@@ -134,10 +134,10 @@ export class TileMatrix implements wmts.TileMatrix {
         const topRight: wmts.TileCoordinates = this.getTileCoordinates([extent[2], extent[3]]);
         const limits: TileMatrixLimits = new TileMatrixLimits(
             this.identifier,
-            Math.max(<number>Math.floor(topRight[1]), 0),
-            Math.min(<number>Math.floor(bottomLeft[1]), this.matrixHeight - 1),
-            Math.max(<number>Math.floor(bottomLeft[0]), 0),
-            Math.min(<number>Math.floor(topRight[0]), this.matrixWidth - 1));
+            Math.max(Math.floor(topRight[1]), 0),
+            Math.min(Math.floor(bottomLeft[1]), this.matrixHeight - 1),
+            Math.max(Math.floor(bottomLeft[0]), 0),
+            Math.min(Math.floor(topRight[0]), this.matrixWidth - 1));
 
         return limits;
     }

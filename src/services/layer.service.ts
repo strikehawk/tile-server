@@ -49,7 +49,7 @@ export class LayerService {
             throw new Error("Request cannot be null.");
         }
 
-        WmtsLayerDefinition.validateCreationRequest(request, this._mimeTypeSvc);
+        WmtsLayerDefinition.validateCreationRequest(request, this._mimeTypeSvc, this._tmsSvc);
 
         // check that no layer exists with the same identifier
         if (this._layers.has(request.identifier)) {
@@ -62,42 +62,21 @@ export class LayerService {
             throw new Error(`Unknown map source identifier '${request.mapSource}'.`);
         }
 
-        const caches: tiles.WmtsLayerCacheOptions[] = request.caches.map(req => {
-            const tms: TileMatrixSet = this._tmsSvc.getTileMatrixSet(req.tileMatrixSet);
-            if (!tms) {
-                throw new Error(`Unknown TileMatrixSet identifier '${req.tileMatrixSet}'.`);
-            }
-
-            let extent: tiles.Extent;
-
-            if (request.wgs84Extent) {
-                // convert map source extent to target projection
-                extent = this._computingSvc.convertWgs84Extent(request.wgs84Extent, tms.supportedCRS);
-            } else {
-                extent = this._computingSvc.convertWgs84Extent(mapSource.wgs84Extent, tms.supportedCRS);
-            }
-
-            // build a TileMatrixSetLimits based on the extent
-            const limits = tms.createLimits(extent).serialize();
-
-            return {
-                identifier: req.identifier,
-                label: req.label,
-                description: req.description,
-                tileMatrixSet: req.tileMatrixSet,
-                style: req.style,
-                format: req.format,
-                tileMatrixSetLimits: limits
-            };
-        });
+        const wgs84Extent: tiles.Extent = request.wgs84Extent || mapSource.wgs84Extent;
+        const caches: tiles.WmtsLayerCacheOptions[] = request.caches.map(req => WmtsLayerCache.createOptions(req, wgs84Extent, this._tmsSvc, this._computingSvc));
 
         const options: tiles.WmtsLayerDefinitionOptions = {
             identifier: request.identifier,
             label: request.label ? request.label : request.identifier,
             description: request.description,
+            mapSource: request.mapSource,
             filePathScheme: request.filePathScheme,
             caches: caches
         };
+
+        if (request.wgs84Extent) {
+            options.wgs84Extent = request.wgs84Extent;
+        }
 
         // store the options
         const folderPath: string = this._options.layersPath;
