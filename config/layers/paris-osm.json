@@ -2,6 +2,7 @@
     "identifier": "paris-osm",
     "label": "Paris - Open Street Map",
     "description": "OpenStreetMap data over Paris, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
     "filePathScheme": "xyz",
     "caches": [
         {
@@ -13,48 +14,6 @@
             "format": "image/png",
             "tileMatrixSetLimits": {
                 "tileMatrixLimits": [
-                    {
-                        "tileMatrix": "0",
-                        "minTileRow": 0,
-                        "maxTileRow": 0,
-                        "minTileCol": 0,
-                        "maxTileCol": 0
-                    },
-                    {
-                        "tileMatrix": "1",
-                        "minTileRow": 0,
-                        "maxTileRow": 0,
-                        "minTileCol": 1,
-                        "maxTileCol": 1
-                    },
-                    {
-                        "tileMatrix": "2",
-                        "minTileRow": 1,
-                        "maxTileRow": 1,
-                        "minTileCol": 2,
-                        "maxTileCol": 2
-                    },
-                    {
-                        "tileMatrix": "3",
-                        "minTileRow": 2,
-                        "maxTileRow": 2,
-                        "minTileCol": 4,
-                        "maxTileCol": 4
-                    },
-                    {
-                        "tileMatrix": "4",
-                        "minTileRow": 5,
-                        "maxTileRow": 5,
-                        "minTileCol": 8,
-                        "maxTileCol": 8
-                    },
-                    {
-                        "tileMatrix": "5",
-                        "minTileRow": 10,
-                        "maxTileRow": 11,
-                        "minTileCol": 16,
-                        "maxTileCol": 16
-                    },
                     {
                         "tileMatrix": "6",
                         "minTileRow": 21,
@@ -145,23 +104,17 @@
                         "maxTileRow": 90391,
                         "minTileCol": 132513,
                         "maxTileCol": 133067
-                    },
-                    {
-                        "tileMatrix": "19",
-                        "minTileRow": 179985,
-                        "maxTileRow": 180782,
-                        "minTileCol": 265027,
-                        "maxTileCol": 266134
-                    },
-                    {
-                        "tileMatrix": "20",
-                        "minTileRow": 359970,
-                        "maxTileRow": 361564,
-                        "minTileCol": 530055,
-                        "maxTileCol": 532268
                     }
                 ]
-            }
+            },
+            "minZoom": 6,
+            "maxZoom": 18
         }
+    ],
+    "wgs84Extent": [
+        1.98,
+        48.67,
+        2.74,
+        49.03
     ]
 }

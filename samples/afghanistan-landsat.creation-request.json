@@ -1,0 +1,26 @@
+{
+    "identifier": "afghanistan-landsat",
+    "label": "Afghanistan Landsat",
+    "description": "Photo coverage of Kabul and Bagram regions. Images provided by Landsat.",
+    "mapSource": "afghanistan-landsat-home",
+    "wgs84Extent": [67.37, 33.53, 71.47, 35.67],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "afghanistan-landsat-default-epsg4326",
+            "label": "Kabul & Bagram area, LANDSAT",
+            "description": "Photo coverage of Kabul and Bagram regions, in EPSG:4326. Images provided by Landsat.",
+            "tileMatrixSet": "EPSG:4326",
+            "style": "default",
+            "format": "image/png"
+        },
+        {
+            "identifier": "afghanistan-landsat-default-epsg900913",
+            "label": "Kabul & Bagram area, LANDSAT",
+            "description": "Photo coverage of Kabul and Bagram regions, in EPSG:900913. Images provided by Landsat.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png"
+        }
+    ]
+}

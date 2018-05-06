@@ -1,0 +1,410 @@
+{
+    "identifier": "afghanistan-landsat",
+    "label": "Afghanistan Landsat",
+    "description": "Photo coverage of Kabul and Bagram regions. Images provided by Landsat.",
+    "mapSource": "afghanistan-landsat-home",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "afghanistan-landsat-default-epsg4326",
+            "label": "Kabul & Bagram area, LANDSAT",
+            "description": "Photo coverage of Kabul and Bagram regions, in EPSG:4326. Images provided by Landsat.",
+            "tileMatrixSet": "EPSG:4326",
+            "style": "default",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "EPSG:4326:0",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 1,
+                        "maxTileCol": 1
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:1",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 2,
+                        "maxTileCol": 2
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:2",
+                        "minTileRow": 1,
+                        "maxTileRow": 1,
+                        "minTileCol": 5,
+                        "maxTileCol": 5
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:3",
+                        "minTileRow": 2,
+                        "maxTileRow": 2,
+                        "minTileCol": 10,
+                        "maxTileCol": 11
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:4",
+                        "minTileRow": 4,
+                        "maxTileRow": 5,
+                        "minTileCol": 21,
+                        "maxTileCol": 22
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:5",
+                        "minTileRow": 9,
+                        "maxTileRow": 10,
+                        "minTileCol": 43,
+                        "maxTileCol": 44
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:6",
+                        "minTileRow": 19,
+                        "maxTileRow": 20,
+                        "minTileCol": 87,
+                        "maxTileCol": 89
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:7",
+                        "minTileRow": 38,
+                        "maxTileRow": 40,
+                        "minTileCol": 175,
+                        "maxTileCol": 178
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:8",
+                        "minTileRow": 77,
+                        "maxTileRow": 80,
+                        "minTileCol": 351,
+                        "maxTileCol": 357
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:9",
+                        "minTileRow": 154,
+                        "maxTileRow": 160,
+                        "minTileCol": 703,
+                        "maxTileCol": 715
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:10",
+                        "minTileRow": 309,
+                        "maxTileRow": 321,
+                        "minTileCol": 1407,
+                        "maxTileCol": 1430
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:11",
+                        "minTileRow": 618,
+                        "maxTileRow": 642,
+                        "minTileCol": 2814,
+                        "maxTileCol": 2861
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:12",
+                        "minTileRow": 1236,
+                        "maxTileRow": 1285,
+                        "minTileCol": 5629,
+                        "maxTileCol": 5722
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:13",
+                        "minTileRow": 2472,
+                        "maxTileRow": 2570,
+                        "minTileCol": 11258,
+                        "maxTileCol": 11444
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:14",
+                        "minTileRow": 4945,
+                        "maxTileRow": 5140,
+                        "minTileCol": 22516,
+                        "maxTileCol": 22889
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:15",
+                        "minTileRow": 9890,
+                        "maxTileRow": 10280,
+                        "minTileCol": 45032,
+                        "maxTileCol": 45778
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:16",
+                        "minTileRow": 19780,
+                        "maxTileRow": 20560,
+                        "minTileCol": 90064,
+                        "maxTileCol": 91557
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:17",
+                        "minTileRow": 39561,
+                        "maxTileRow": 41120,
+                        "minTileCol": 180129,
+                        "maxTileCol": 183114
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:18",
+                        "minTileRow": 79123,
+                        "maxTileRow": 82240,
+                        "minTileCol": 360258,
+                        "maxTileCol": 366229
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:19",
+                        "minTileRow": 158247,
+                        "maxTileRow": 164480,
+                        "minTileCol": 720517,
+                        "maxTileCol": 732459
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:20",
+                        "minTileRow": 316495,
+                        "maxTileRow": 328961,
+                        "minTileCol": 1441034,
+                        "maxTileCol": 1464918
+                    },
+                    {
+                        "tileMatrix": "EPSG:4326:21",
+                        "minTileRow": 632990,
+                        "maxTileRow": 657923,
+                        "minTileCol": 2882069,
+                        "maxTileCol": 2929837
+                    }
+                ]
+            }
+        },
+        {
+            "identifier": "afghanistan-landsat-default-epsg900913",
+            "label": "Kabul & Bagram area, LANDSAT",
+            "description": "Photo coverage of Kabul and Bagram regions, in EPSG:900913. Images provided by Landsat.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "0",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 0,
+                        "maxTileCol": 0
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:1",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 1,
+                        "maxTileCol": 1
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:2",
+                        "minTileRow": 1,
+                        "maxTileRow": 1,
+                        "minTileCol": 2,
+                        "maxTileCol": 2
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:3",
+                        "minTileRow": 3,
+                        "maxTileRow": 3,
+                        "minTileCol": 5,
+                        "maxTileCol": 5
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:4",
+                        "minTileRow": 6,
+                        "maxTileRow": 6,
+                        "minTileCol": 10,
+                        "maxTileCol": 11
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:5",
+                        "minTileRow": 12,
+                        "maxTileRow": 12,
+                        "minTileCol": 21,
+                        "maxTileCol": 22
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:6",
+                        "minTileRow": 25,
+                        "maxTileRow": 25,
+                        "minTileCol": 43,
+                        "maxTileCol": 44
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:7",
+                        "minTileRow": 50,
+                        "maxTileRow": 51,
+                        "minTileCol": 87,
+                        "maxTileCol": 89
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:8",
+                        "minTileRow": 100,
+                        "maxTileRow": 102,
+                        "minTileCol": 175,
+                        "maxTileCol": 178
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:9",
+                        "minTileRow": 201,
+                        "maxTileRow": 205,
+                        "minTileCol": 351,
+                        "maxTileCol": 357
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:10",
+                        "minTileRow": 403,
+                        "maxTileRow": 410,
+                        "minTileCol": 703,
+                        "maxTileCol": 715
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:11",
+                        "minTileRow": 806,
+                        "maxTileRow": 821,
+                        "minTileCol": 1407,
+                        "maxTileCol": 1430
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:12",
+                        "minTileRow": 1613,
+                        "maxTileRow": 1642,
+                        "minTileCol": 2814,
+                        "maxTileCol": 2861
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:13",
+                        "minTileRow": 3226,
+                        "maxTileRow": 3285,
+                        "minTileCol": 5629,
+                        "maxTileCol": 5722
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:14",
+                        "minTileRow": 6452,
+                        "maxTileRow": 6570,
+                        "minTileCol": 11258,
+                        "maxTileCol": 11444
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:15",
+                        "minTileRow": 12904,
+                        "maxTileRow": 13141,
+                        "minTileCol": 22516,
+                        "maxTileCol": 22889
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:16",
+                        "minTileRow": 25809,
+                        "maxTileRow": 26282,
+                        "minTileCol": 45032,
+                        "maxTileCol": 45778
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:17",
+                        "minTileRow": 51618,
+                        "maxTileRow": 52564,
+                        "minTileCol": 90064,
+                        "maxTileCol": 91557
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:18",
+                        "minTileRow": 103236,
+                        "maxTileRow": 105129,
+                        "minTileCol": 180129,
+                        "maxTileCol": 183114
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:19",
+                        "minTileRow": 206473,
+                        "maxTileRow": 210259,
+                        "minTileCol": 360258,
+                        "maxTileCol": 366229
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:20",
+                        "minTileRow": 412946,
+                        "maxTileRow": 420519,
+                        "minTileCol": 720517,
+                        "maxTileCol": 732459
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:21",
+                        "minTileRow": 825892,
+                        "maxTileRow": 841039,
+                        "minTileCol": 1441034,
+                        "maxTileCol": 1464918
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:22",
+                        "minTileRow": 1651785,
+                        "maxTileRow": 1682079,
+                        "minTileCol": 2882069,
+                        "maxTileCol": 2929837
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:23",
+                        "minTileRow": 3303571,
+                        "maxTileRow": 3364158,
+                        "minTileCol": 5764138,
+                        "maxTileCol": 5859675
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:24",
+                        "minTileRow": 6607143,
+                        "maxTileRow": 6728316,
+                        "minTileCol": 11528277,
+                        "maxTileCol": 11719351
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:25",
+                        "minTileRow": 13214286,
+                        "maxTileRow": 13456633,
+                        "minTileCol": 23056555,
+                        "maxTileCol": 23438702
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:26",
+                        "minTileRow": 26428572,
+                        "maxTileRow": 26913267,
+                        "minTileCol": 46113110,
+                        "maxTileCol": 46877405
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:27",
+                        "minTileRow": 52857145,
+                        "maxTileRow": 53826535,
+                        "minTileCol": 92226220,
+                        "maxTileCol": 93754811
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:28",
+                        "minTileRow": 105714290,
+                        "maxTileRow": 107653070,
+                        "minTileCol": 184452440,
+                        "maxTileCol": 187509622
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:29",
+                        "minTileRow": 211428580,
+                        "maxTileRow": 215306141,
+                        "minTileCol": 368904881,
+                        "maxTileCol": 375019245
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:30",
+                        "minTileRow": 422857161,
+                        "maxTileRow": 430612283,
+                        "minTileCol": 737809763,
+                        "maxTileCol": 750038490
+                    }
+                ]
+            }
+        }
+    ],
+    "wgs84Extent": [
+        67.37,
+        33.53,
+        71.47,
+        35.67
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "identifier": "paris-osm",
+    "label": "Paris - Open Street Map",
+    "description": "OpenStreetMap data over Paris, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
+    "wgs84Extent": [1.98, 48.67, 2.74, 49.03],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "paris-osm-dark-mapbox-png",
+            "label": "Paris OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Paris, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png",
+            "minZoom": 6,
+            "maxZoom": 18
+        }
+    ]
+}

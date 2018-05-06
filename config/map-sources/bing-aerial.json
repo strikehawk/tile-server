@@ -1,7 +1,6 @@
 ﻿{
-    "identifier": "chicago-bing-aerial",
-    "label": "Chicago - Bing Maps Aerial",
-    "wgs84Extent": [ 67.37, 33.53, 71.47, 35.67 ],
+    "identifier": "bing-aerial",
+    "label": "Bing Maps Aerial",
     "type": "Bing",
     "urlPattern": "http://ecn.t0.tiles.virtualearth.net/tiles/a{quadkey}.jpeg?g=5682",
     "imageryType": "Aerial",

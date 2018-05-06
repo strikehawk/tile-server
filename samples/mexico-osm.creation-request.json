@@ -12,7 +12,9 @@
             "description": "OpenStreetMap data over Mexico City, using 'Dark' theme from MapBox.",
             "tileMatrixSet": "Jawg.io",
             "style": "dark",
-            "format": "image/png"
+            "format": "image/png",
+            "minZoom": 6,
+            "maxZoom": 18
         }
     ]
 }

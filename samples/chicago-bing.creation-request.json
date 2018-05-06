@@ -1,0 +1,20 @@
+{
+    "identifier": "chicago-bing",
+    "label": "Chicago - Bing",
+    "description": "Area of Chicago using data from Bing Maps.",
+    "mapSource": "bing-aerial",
+    "wgs84Extent": [-87.75, 41.88, -87.73, 41.89],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "chicago-bing-aerial-epsg900913",
+            "label": "Chicago Bing Maps - Aerial",
+            "description": "Photo coverage of Chicago, in EPSG:900913. Images provided by Bing Maps.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "aerial",
+            "format": "image/jpeg",
+            "minZoom": 14,
+            "maxZoom": 17
+        }
+    ]
+}

@@ -2,6 +2,7 @@
     "identifier": "mexico-osm",
     "label": "Mexico City - Open Street Map",
     "description": "OpenStreetMap data over Mexico City, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
     "filePathScheme": "xyz",
     "caches": [
         {
@@ -13,48 +14,6 @@
             "format": "image/png",
             "tileMatrixSetLimits": {
                 "tileMatrixLimits": [
-                    {
-                        "tileMatrix": "0",
-                        "minTileRow": 0,
-                        "maxTileRow": 0,
-                        "minTileCol": 0,
-                        "maxTileCol": 0
-                    },
-                    {
-                        "tileMatrix": "1",
-                        "minTileRow": 0,
-                        "maxTileRow": 0,
-                        "minTileCol": 0,
-                        "maxTileCol": 0
-                    },
-                    {
-                        "tileMatrix": "2",
-                        "minTileRow": 1,
-                        "maxTileRow": 1,
-                        "minTileCol": 0,
-                        "maxTileCol": 0
-                    },
-                    {
-                        "tileMatrix": "3",
-                        "minTileRow": 3,
-                        "maxTileRow": 3,
-                        "minTileCol": 1,
-                        "maxTileCol": 1
-                    },
-                    {
-                        "tileMatrix": "4",
-                        "minTileRow": 7,
-                        "maxTileRow": 7,
-                        "minTileCol": 3,
-                        "maxTileCol": 3
-                    },
-                    {
-                        "tileMatrix": "5",
-                        "minTileRow": 14,
-                        "maxTileRow": 14,
-                        "minTileCol": 7,
-                        "maxTileCol": 7
-                    },
                     {
                         "tileMatrix": "6",
                         "minTileRow": 28,
@@ -145,23 +104,17 @@
                         "maxTileRow": 116736,
                         "minTileCol": 58785,
                         "maxTileCol": 59004
-                    },
-                    {
-                        "tileMatrix": "19",
-                        "minTileRow": 233134,
-                        "maxTileRow": 233473,
-                        "minTileCol": 117571,
-                        "maxTileCol": 118008
-                    },
-                    {
-                        "tileMatrix": "20",
-                        "minTileRow": 466268,
-                        "maxTileRow": 466947,
-                        "minTileCol": 235143,
-                        "maxTileCol": 236016
                     }
                 ]
-            }
+            },
+            "minZoom": 6,
+            "maxZoom": 18
         }
+    ],
+    "wgs84Extent": [
+        -99.27,
+        19.31,
+        -98.97,
+        19.53
     ]
 }

@@ -1,12 +1,13 @@
 {
     "identifier": "chicago-bing",
-    "label": "Chicago - Bing Maps",
+    "label": "Chicago - Bing",
     "description": "Area of Chicago using data from Bing Maps.",
+    "mapSource": "bing-aerial",
     "filePathScheme": "xyz",
     "caches": [
         {
             "identifier": "chicago-bing-aerial-epsg900913",
-            "label": "Chicago, Aerial",
+            "label": "Chicago Bing Maps - Aerial",
             "description": "Photo coverage of Chicago, in EPSG:900913. Images provided by Bing Maps.",
             "tileMatrixSet": "EPSG:900913",
             "style": "aerial",
@@ -15,34 +16,42 @@
                 "tileMatrixLimits": [
                     {
                         "tileMatrix": "EPSG:900913:14",
-                        "minTileCol": 8397,
-                        "maxTileCol": 8397,
-                        "minTileRow": 12177,
-                        "maxTileRow": 12177
+                        "minTileRow": 6088,
+                        "maxTileRow": 6089,
+                        "minTileCol": 4198,
+                        "maxTileCol": 4199
                     },
                     {
                         "tileMatrix": "EPSG:900913:15",
-                        "minTileCol": 16794,
-                        "maxTileCol": 16795,
-                        "minTileRow": 24354,
-                        "maxTileRow": 24355
+                        "minTileRow": 12177,
+                        "maxTileRow": 12178,
+                        "minTileCol": 8396,
+                        "maxTileCol": 8398
                     },
                     {
                         "tileMatrix": "EPSG:900913:16",
-                        "minTileCol": 33588,
-                        "maxTileCol": 33591,
-                        "minTileRow": 48708,
-                        "maxTileRow": 48711
+                        "minTileRow": 24355,
+                        "maxTileRow": 24357,
+                        "minTileCol": 16793,
+                        "maxTileCol": 16797
                     },
                     {
                         "tileMatrix": "EPSG:900913:17",
-                        "minTileCol": 67176,
-                        "maxTileCol": 67183,
-                        "minTileRow": 97416,
-                        "maxTileRow": 97423
+                        "minTileRow": 48710,
+                        "maxTileRow": 48714,
+                        "minTileCol": 33587,
+                        "maxTileCol": 33594
                     }
                 ]
-            }
+            },
+            "minZoom": 14,
+            "maxZoom": 17
         }
+    ],
+    "wgs84Extent": [
+        -87.75,
+        41.88,
+        -87.73,
+        41.89
     ]
 }
