@@ -44,13 +44,8 @@ function loadLayer(layerIdx: number, cacheIdx: number) {
     group.getLayers().push(layer);
 
     // animate the map to go to the center of the extent, at the minimum level
-    const extent: ol.Extent = getTileMatrixSetExtent(tms, projection, limits);
-    const center = ol.extent.getCenter(extent);
-
-    map.getView().animate({
-        center: center,
-        duration: 2000
-    });
+    const minZoom: number = cache.metadata && cache.metadata.length > 0 && cache.metadata[0].minZoom;
+    goToLayer(tms, projection, limits, minZoom);
 }
 
 function getTileGrid(tms: wmts.TileMatrixSet, projection: ol.proj.Projection, limits?: wmts.TileMatrixSetLimits): ol.tilegrid.WMTS {
@@ -96,6 +91,17 @@ function getTileMatrixSetExtent(tms: wmts.TileMatrixSet, projection: ol.proj.Pro
     ];
 }
 
+function goToLayer(tms: wmts.TileMatrixSet, projection: ol.proj.Projection, limits?: wmts.TileMatrixSetLimits, zoom?: number): void {
+    const extent: ol.Extent = getTileMatrixSetExtent(tms, projection, limits);
+    const center = ol.extent.getCenter(extent);
+
+    map.getView().animate({
+        center: center,
+        zoom: typeof zoom === "number" ? zoom : 0,
+        duration: 1500
+    });
+}
+
 $(document).ready(function () {
     // fill TMS map
     _mapTMS = new Map<string, wmts.TileMatrixSet>();
@@ -113,7 +119,7 @@ $(document).ready(function () {
             group
         ],
         view: new ol.View({
-            center: ol.proj.fromLonLat([37.41, 8.82]),
+            center: [0, 0],
             zoom: 4
         })
     });
