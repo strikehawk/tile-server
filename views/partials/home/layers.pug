@@ -1,0 +1,11 @@
+mixin layer-block(layer)
+    label= layer.label
+    div
+        small= layer.description
+
+h2 Layers
+ul
+    each layer in layers
+        li
+            +layer-block(layer)
+            br

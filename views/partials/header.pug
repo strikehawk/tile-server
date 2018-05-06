@@ -7,12 +7,14 @@
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/')
-        i.fa.fa-rebel
+        i.fa.fa-th
         | Tile Server
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=(`${screen}` == 'home') ? 'active' : undefined)
           a(href='/') Home
+        li(class=(`${screen}` == 'layers') ? 'active' : undefined)
+          a(href='/layers') Layers
         li(class=(`${screen}` == 'sources') ? 'active' : undefined)
           a(href='/sources') Sources
         li(class=(`${screen}` == 'create-source') ? 'active' : undefined)

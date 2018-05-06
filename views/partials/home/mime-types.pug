@@ -1,0 +1,8 @@
+h2 Mime types
+ul
+    each mime in mimeTypes
+        li
+            div
+                label= mime.type
+                span  (*.#{mime.fileExtension})
+            br

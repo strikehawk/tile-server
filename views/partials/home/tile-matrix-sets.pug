@@ -1,0 +1,13 @@
+mixin tile-matrix-set(tms)
+    label= tms.identifier
+    div
+        | Projection: #{tms.supportedCRS}
+    div
+        span #{tms.tileMatrix.length} levels
+    br
+
+h2 Tile matrix sets
+ul
+    each tms in tileMatrixSets
+        li
+            +tile-matrix-set(tms)
