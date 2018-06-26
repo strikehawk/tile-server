@@ -1,0 +1,20 @@
+{
+    "identifier": "merida-osm",
+    "label": "Merida - Open Street Map",
+    "description": "OpenStreetMap data over Merida, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
+    "wgs84Extent": [-89.735847, 20.739773, -89.478803, 21.161181],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "merida-osm-dark-mapbox-png",
+            "label": "Merida OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Merida, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png",
+            "minZoom": 6,
+            "maxZoom": 18
+        }
+    ]
+}

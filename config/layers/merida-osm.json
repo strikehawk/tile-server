@@ -1,0 +1,120 @@
+{
+    "identifier": "merida-osm",
+    "label": "Merida - Open Street Map",
+    "description": "OpenStreetMap data over Merida, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "merida-osm-dark-mapbox-png",
+            "label": "Merida OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Merida, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "6",
+                        "minTileRow": 28,
+                        "maxTileRow": 28,
+                        "minTileCol": 16,
+                        "maxTileCol": 16
+                    },
+                    {
+                        "tileMatrix": "7",
+                        "minTileRow": 56,
+                        "maxTileRow": 56,
+                        "minTileCol": 32,
+                        "maxTileCol": 32
+                    },
+                    {
+                        "tileMatrix": "8",
+                        "minTileRow": 112,
+                        "maxTileRow": 112,
+                        "minTileCol": 64,
+                        "maxTileCol": 64
+                    },
+                    {
+                        "tileMatrix": "9",
+                        "minTileRow": 225,
+                        "maxTileRow": 225,
+                        "minTileCol": 128,
+                        "maxTileCol": 128
+                    },
+                    {
+                        "tileMatrix": "10",
+                        "minTileRow": 450,
+                        "maxTileRow": 451,
+                        "minTileCol": 256,
+                        "maxTileCol": 257
+                    },
+                    {
+                        "tileMatrix": "11",
+                        "minTileRow": 900,
+                        "maxTileRow": 903,
+                        "minTileCol": 513,
+                        "maxTileCol": 514
+                    },
+                    {
+                        "tileMatrix": "12",
+                        "minTileRow": 1801,
+                        "maxTileRow": 1806,
+                        "minTileCol": 1027,
+                        "maxTileCol": 1029
+                    },
+                    {
+                        "tileMatrix": "13",
+                        "minTileRow": 3603,
+                        "maxTileRow": 3613,
+                        "minTileCol": 2054,
+                        "maxTileCol": 2059
+                    },
+                    {
+                        "tileMatrix": "14",
+                        "minTileRow": 7206,
+                        "maxTileRow": 7226,
+                        "minTileCol": 4108,
+                        "maxTileCol": 4119
+                    },
+                    {
+                        "tileMatrix": "15",
+                        "minTileRow": 14412,
+                        "maxTileRow": 14453,
+                        "minTileCol": 8216,
+                        "maxTileCol": 8239
+                    },
+                    {
+                        "tileMatrix": "16",
+                        "minTileRow": 28825,
+                        "maxTileRow": 28907,
+                        "minTileCol": 16432,
+                        "maxTileCol": 16478
+                    },
+                    {
+                        "tileMatrix": "17",
+                        "minTileRow": 57650,
+                        "maxTileRow": 57814,
+                        "minTileCol": 32864,
+                        "maxTileCol": 32957
+                    },
+                    {
+                        "tileMatrix": "18",
+                        "minTileRow": 115300,
+                        "maxTileRow": 115628,
+                        "minTileCol": 65728,
+                        "maxTileCol": 65915
+                    }
+                ]
+            },
+            "minZoom": 6,
+            "maxZoom": 18
+        }
+    ],
+    "wgs84Extent": [
+        -89.735847,
+        20.739773,
+        -89.478803,
+        21.161181
+    ]
+}
