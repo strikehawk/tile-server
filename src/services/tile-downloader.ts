@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
-import axios from "axios";
+import axios, { AxiosInstance, AxiosProxyConfig, AxiosStatic } from "axios";
+import _ from "lodash";
 
 import logger from "../util/logger";
 
@@ -9,6 +10,7 @@ import { SeedingService } from "./seeding.service";
 
 export class TileDownloader {
     constructor(private _seedingSvc: SeedingService) {
+        this._scheduleRequests(50);
     }
 
     public cancelTask(taskId: number): void {
@@ -55,5 +57,29 @@ export class TileDownloader {
 
         // notify the task has been updated
         this._seedingSvc.updateTask(task);
+    }
+
+    private _scheduleRequests(interval: number) {
+        let lastInvocationTime: number = undefined;
+
+        const scheduler = (config: AxiosProxyConfig) => {
+            const now = Date.now();
+            if (lastInvocationTime) {
+                lastInvocationTime += interval;
+                const waitPeriodForThisRequest = lastInvocationTime - now;
+                if (waitPeriodForThisRequest > 0) {
+                    return new Promise((resolve) => {
+                        setTimeout(
+                            () => resolve(config),
+                            waitPeriodForThisRequest);
+                    });
+                }
+            }
+
+            lastInvocationTime = now;
+            return config;
+        };
+
+        axios.interceptors.request.use(scheduler);
     }
 }
