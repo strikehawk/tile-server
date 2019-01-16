@@ -100,6 +100,12 @@ export class SeedingService {
 
         let limits: TileMatrixSetLimits;
 
+        let bbox: wmts.BoundingBox;
+
+        if (request.bbox) {
+            bbox = request.bbox;
+        }
+
         if (request.bbox) {
             limits = cache.tileMatrixSet.createLimits(this._computingSvc.convertBboxToExtent(request.bbox, cache.tileMatrixSet.supportedCRS));
         }
