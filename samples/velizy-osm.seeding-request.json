@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "velizy-osm",
+    "cacheIdentifier": "velizy-osm-dark-mapbox-png",
+    "mapSource": "mapbox-dark",
+    "startZoom": 17,
+    "endZoom": 18,
+    "bbox": {
+        "lowerCorner": [2.13, 48.73],
+        "upperCorner": [2.27, 48.8],
+        "crs": "EPSG:4326"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "identifier": "velizy-osm",
+    "label": "Velizy - Open Street Map",
+    "description": "OpenStreetMap data over Vélizy, using 'Dark' theme from MapBox.",
+    "mapSource": "mapbox-dark",
+    "wgs84Extent": [2.13, 48.73, 2.27, 48.8],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "velizy-osm-dark-mapbox-png",
+            "label": "Velizy OSM - MapBox 'Dark' Theme",
+            "description": "OpenStreetMap data over Vélizy, using 'Dark' theme from MapBox.",
+            "tileMatrixSet": "Jawg.io",
+            "style": "dark",
+            "format": "image/png",
+            "minZoom": 6,
+            "maxZoom": 18
+        }
+    ]
+}
