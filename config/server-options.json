@@ -1,6 +1,6 @@
 {
-    "cacheRoot": "D:\\WmtsServer\\Cache",
-    "mapSourcesPath": "D:\\Projects\\tile-server\\config\\map-sources",
-    "tileMatrixSetsPath": "D:\\Projects\\tile-server\\config\\tile-matrix-sets",
-    "layersPath": "D:\\Projects\\tile-server\\config\\layers"
+    "cacheRoot": "C:\\WmtsServer\\Cache",
+    "mapSourcesPath": "C:\\Projects\\tile-server\\config\\map-sources",
+    "tileMatrixSetsPath": "C:\\Projects\\tile-server\\config\\tile-matrix-sets",
+    "layersPath": "C:\\Projects\\tile-server\\config\\layers"
 }

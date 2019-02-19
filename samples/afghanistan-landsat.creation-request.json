@@ -3,7 +3,12 @@
     "label": "Afghanistan Landsat",
     "description": "Photo coverage of Kabul and Bagram regions. Images provided by Landsat.",
     "mapSource": "afghanistan-landsat-home",
-    "wgs84Extent": [67.37, 33.53, 71.47, 35.67],
+    "wgs84Extent": [
+        67.37031185568688,
+        33.53369574444533,
+        71.47297506321321,
+        35.670488282208495
+    ],
     "filePathScheme": "xyz",
     "caches": [
         {

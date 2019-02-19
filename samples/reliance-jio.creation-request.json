@@ -1,0 +1,31 @@
+{
+    "identifier": "reliance-jio",
+    "label": "Reliance JIO Headquarters",
+    "description": "Blueprint of the 6th floor of the building.",
+    "mapSource": "reliance-jio",
+    "wgs84Extent": [
+        72.86555457393831,
+        19.06246598483806,
+        72.86658804513038,
+        19.06401244764659
+    ],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "reliance-jio-default-epsg4326",
+            "label": "Reliance Jio 6th Floor",
+            "description": "Blueprint of the 6th floor of the building, in EPSG:4326.",
+            "tileMatrixSet": "EPSG:4326",
+            "style": "default",
+            "format": "image/png"
+        },
+        {
+            "identifier": "reliance-jio-default-epsg900913",
+            "label": "Reliance Jio 6th Floor",
+            "description": "Blueprint of the 6th floor of the building, in EPSG:900913",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png"
+        }
+    ]
+}

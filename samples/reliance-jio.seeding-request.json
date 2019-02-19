@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "reliance-jio",
+    "cacheIdentifier": "reliance-jio-default-epsg900913",
+    "mapSource": "reliance-jio",
+    "startZoom": 13,
+    "endZoom": 22,
+    "bbox": {
+        "lowerCorner": [72.86555457393831, 19.06246598483806],
+        "upperCorner": [72.86658804513038, 19.06401244764659],
+        "crs": "EPSG:4326"
+    }
+}

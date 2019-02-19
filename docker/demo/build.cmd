@@ -1,0 +1,1 @@
+docker build -t node-tile-server:no-volume -f Dockerfile ../..

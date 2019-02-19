@@ -36,18 +36,20 @@ export class TileDownloader {
     }
 
     private async _downloadTileAsync(tile: tiles.TileSummary, task: SeedingTask): Promise<void> {
-        const directoryName: string = path.dirname(tile.filePath);
+        const directoryName: string = path.dirname(path.normalize(tile.filePath));
 
         try {
             const response = await axios.get(tile.url, {
                 responseType: "stream"
             });
 
-            if (!fs.existsSync(directoryName)) {
-                fs.mkdirpSync(directoryName);
-            }
+            // if (!fs.pathExistsSync(directoryName)) {
+            //     fs.mkdirpSync(directoryName);
+            // }
 
-            // pipe the result stream into a file on disc
+            fs.ensureDirSync(directoryName);
+
+            // pipe the result stream into a file on disk
             response.data.pipe(fs.createWriteStream(tile.filePath));
 
             task.tilesDownloaded++;

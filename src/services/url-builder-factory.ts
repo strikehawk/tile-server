@@ -1,5 +1,6 @@
 import { TileObject } from "../server/tile-object";
 import { WmtsUrlBuilder } from "./wmts-url-builder";
+import { WmsUrlBuilder } from "./wms-url-builder";
 
 export interface UrlBuilder {
     getRequestUrl(tile: TileObject): string;
@@ -15,7 +16,7 @@ export class UrlBuilderFactory {
             case "WMTS":
                 return new WmtsUrlBuilder(<tiles.WmtsMapSource>source);
             case "WMS":
-                // return new WmsKvpUrlBuilder(<tiles.WmsMapSource>source);
+                return new WmsUrlBuilder(<tiles.WmsMapSource>source);
             case "Bing":
                 // return new BingMapsTileUrlBuilder(<tiles.BingMapSource>source);
             default:

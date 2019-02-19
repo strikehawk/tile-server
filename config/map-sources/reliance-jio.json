@@ -1,0 +1,12 @@
+﻿{
+    "identifier": "reliance-jio",
+    "label": "Reliance Jio Headquarters",
+    "type": "WMS",
+    "version": "1.3.0",
+    "url": "http://localhost:8080/geoserver/sdp/wms",
+    "layers": "sdp:reliance-jwc",
+    "additionalParameters": "&transparent=true",
+    "supportedFormats": [
+        "image/png"
+    ]
+}

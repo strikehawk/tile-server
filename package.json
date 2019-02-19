@@ -5,9 +5,9 @@
   "author": "Strikehawk",
   "license": "ISC",
   "scripts": {
-    "start": "npm run serve",
-    "build": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets",
     "serve": "node dist/app.js",
+    "build": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets",
+    "pack": "npm run build && node scripts/copy-node-modules.js",
     "watch-node": "nodemon dist/app.js",
     "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
     "test": "jest --forceExit --coverage --verbose",
@@ -18,7 +18,7 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "copy-static-assets": "ts-node copyStaticAssets.ts",
     "debug": "npm run build && npm run watch-debug",
-    "serve-debug": "nodemon --inspect dist/app.js",
+    "serve-debug": "nodemon --inspect-brk dist/app.js",
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "dependencies": {
@@ -45,7 +45,6 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/bluebird": "^3.5.20",
     "@types/body-parser": "^1.16.8",
     "@types/compression": "^0.0.35",
@@ -62,15 +61,16 @@
     "@types/morgan": "^1.7.35",
     "@types/node": "^9.4.6",
     "@types/openlayers": "4.6.9",
+    "@types/pug": "2.0.4",
     "@types/proj4": "^2.3.4",
     "@types/request": "^2.47.0",
     "@types/shelljs": "^0.7.8",
     "@types/socket.io": "^1.4.32",
     "@types/supertest": "^2.0.4",
     "@types/uuid": "^3.4.3",
-    "@types/winston": "^2.3.7",
     "chai": "^4.1.2",
     "concurrently": "^3.5.1",
+    "dependency-tree": "^6.2.1",
     "jest": "^22.0.4",
     "node-sass": "^4.7.2",
     "nodemon": "^1.13.0",

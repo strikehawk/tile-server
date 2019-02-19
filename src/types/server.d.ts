@@ -32,6 +32,9 @@ declare namespace tiles {
         mimeTypes: MimeType[];
     }
 
+    /**
+     * The file system structure to use when writing a tile dataset to a folder.
+     */
     export type FilePathScheme = "xyz" | "geowebcache";
     
     interface WmtsLayerCacheCreationRequest {
@@ -366,5 +369,19 @@ declare namespace tiles {
          * The estimated size of the cache in bytes. The most pessimistic tile size is used.
          */
         highEstimatedSize?: number;
+    }
+
+    interface Srs {
+        /**
+         * The known aliases of the SRS.
+         * @readonly
+         */
+        identifiers: string[];
+
+        /**
+         * The conversion rate between 1 SRS unit and meters.
+         * @readonly
+         */
+        metersPerUnit: number;
     }
 }

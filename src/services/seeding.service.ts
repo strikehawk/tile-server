@@ -100,12 +100,6 @@ export class SeedingService {
 
         let limits: TileMatrixSetLimits;
 
-        let bbox: wmts.BoundingBox;
-
-        if (request.bbox) {
-            bbox = request.bbox;
-        }
-
         if (request.bbox) {
             limits = cache.tileMatrixSet.createLimits(this._computingSvc.convertBboxToExtent(request.bbox, cache.tileMatrixSet.supportedCRS));
         }
@@ -114,7 +108,7 @@ export class SeedingService {
             limits = limits ? TileMatrixSetLimits.intersect(limits, cache.tileMatrixSetLimits) : cache.tileMatrixSetLimits;
         }
 
-        const tiles = this._buildTileList(layerDef, cache, urlBuilder, request.seedingMode, startZoom, endZoom, limits);
+        const tiles = this._buildTileList(layerDef, cache, urlBuilder, seedingMode, startZoom, endZoom, limits);
 
         return new SeedingTask(request, tiles);
     }

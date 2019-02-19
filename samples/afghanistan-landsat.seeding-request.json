@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "afghanistan-landsat",
+    "cacheIdentifier": "afghanistan-landsat-default-epsg4326",
+    "mapSource": "afghanistan-landsat",
+    "startZoom": 5,
+    "endZoom": 12,
+    "bbox": {
+        "lowerCorner": [67.37031185568688, 33.53369574444533],
+        "upperCorner": [71.47297506321321, 35.670488282208495],
+        "crs": "EPSG:4326"
+    }
+}

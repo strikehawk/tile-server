@@ -12,9 +12,20 @@ const _buildRouter = (catalog: ServiceCatalog): Router => {
 
     // return the list of SRS of the server
     router.get("/", (req: Request, res: Response) => {
+        const baseUrl: string = req.protocol + "://" + req.get("host");
+
         res.render("layers", {
             title: "Layers",
-            screen: "layers"
+            screen: "layers",
+            tileMatrixSets: catalog.tileMatrixSetService.getTileMatrixSets().map(o => o.serialize()),
+            layers: catalog.layerService.getLayers().map(o => {
+              return {
+                identifier: o.identifier,
+                label: o.label,
+                description: o.description,
+                caches: o.getWmtsLayers(baseUrl)
+              };
+            })
         });
     });
 

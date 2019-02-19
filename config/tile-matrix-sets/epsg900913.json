@@ -14,7 +14,7 @@
     "supportedCRS": "urn:ogc:def:crs:EPSG::900913",
     "tileMatrix": [
         {
-            "identifier": "0",
+            "identifier": "EPSG:900913:0",
             "scaleDenominator": 559082263.9508929,
             "topLeftCorner": [
                 -20037508.34,

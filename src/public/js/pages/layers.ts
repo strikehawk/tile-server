@@ -13,7 +13,46 @@ let group: ol.layer.Group;
 
 let _mapTMS: Map<string, wmts.TileMatrixSet>;
 
-function loadLayer(layerIdx: number, cacheIdx: number) {
+function createMap(layer?: ol.layer.Tile, proj?: string): void {
+    group = new ol.layer.Group();
+    const layers: ol.layer.Base[] = [
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        }),
+        group
+    ];
+
+    if (layer) {
+        group.getLayers().push(layer);
+    }
+
+    const viewOptions: any = {
+        center: [0, 0],
+        zoom: 4
+    };
+
+    if (proj) {
+        viewOptions.projection = proj;
+    }
+
+    map = new ol.Map({
+        target: "map",
+        layers: layers,
+        view: new ol.View(viewOptions)
+    });
+}
+
+function changeView(projection: ol.proj.Projection, center: ol.Coordinate, zoom?: number): void {
+    const view: ol.View = new ol.View({
+        projection: projection,
+        center: center,
+        zoom: typeof zoom === "number" ? zoom : 4
+    });
+
+    map.setView(view);
+}
+
+function loadLayer(layerIdx: number, cacheIdx: number): void {
     // clear the layer group
     group.getLayers().clear();
 
@@ -33,7 +72,7 @@ function loadLayer(layerIdx: number, cacheIdx: number) {
         style: cache.style[0].identifier,
         matrixSet: tms.identifier,
         tileGrid: tileGrid,
-        projection: tms.supportedCRS
+        projection: projection
     });
 
     const layer: ol.layer.Tile = new ol.layer.Tile({
@@ -49,19 +88,28 @@ function loadLayer(layerIdx: number, cacheIdx: number) {
 }
 
 function getTileGrid(tms: wmts.TileMatrixSet, projection: ol.proj.Projection, limits?: wmts.TileMatrixSetLimits): ol.tilegrid.WMTS {
-    const projectionExtent = projection.getExtent();
-    const size: number = ol.extent.getWidth(projectionExtent) / 256;
+    let matrix: wmts.TileMatrix;
+    let tileSize: number; // assume tiles are square
+    // const projectionExtent = projection.getExtent();
+    // const size: number = ol.extent.getWidth(projectionExtent) / tileSize;
     const resolutions: number[] = [];
     const matrixIds: string[] = [];
 
+    const width = tms.boundingBox.upperCorner[0] - tms.boundingBox.lowerCorner[0];
+
     for (let z: number = 0; z < tms.tileMatrix.length; ++z) {
+        matrix = tms.tileMatrix[z];
+        tileSize = matrix.tileWidth;
+
         // generate resolutions and matrixIds arrays for this WMTS
-        resolutions[z] = size / Math.pow(2, z);
-        matrixIds[z] = tms.tileMatrix[z].identifier;
+        resolutions[z] = width / tileSize / matrix.matrixWidth;
+        // resolutions[z] = size / Math.pow(2, z);
+        matrixIds[z] = matrix.identifier;
     }
 
     return new ol.tilegrid.WMTS({
-        origin: ol.extent.getTopLeft(projectionExtent),
+        origin: [tms.boundingBox.lowerCorner[0], tms.boundingBox.upperCorner[1]],
+        // origin: ol.extent.getTopLeft(projectionExtent),
         resolutions: resolutions,
         matrixIds: matrixIds
     });
@@ -95,11 +143,15 @@ function goToLayer(tms: wmts.TileMatrixSet, projection: ol.proj.Projection, limi
     const extent: ol.Extent = getTileMatrixSetExtent(tms, projection, limits);
     const center = ol.extent.getCenter(extent);
 
-    map.getView().animate({
-        center: center,
-        zoom: typeof zoom === "number" ? zoom : 0,
-        duration: 1500
-    });
+    if (map.getView().getProjection() === projection) {
+        map.getView().animate({
+            center: center,
+            zoom: typeof zoom === "number" ? zoom + 1 : 4,
+            duration: 1500
+        });
+    } else {
+        changeView(projection, center, zoom + 1);
+    }
 }
 
 $(document).ready(function () {
@@ -109,18 +161,5 @@ $(document).ready(function () {
         _mapTMS.set(tms.identifier, tms);
     }
 
-    group = new ol.layer.Group();
-    map = new ol.Map({
-        target: "map",
-        layers: [
-            new ol.layer.Tile({
-                source: new ol.source.OSM()
-            }),
-            group
-        ],
-        view: new ol.View({
-            center: [0, 0],
-            zoom: 4
-        })
-    });
+    createMap();
 });

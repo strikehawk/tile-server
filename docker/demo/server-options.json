@@ -1,0 +1,6 @@
+{
+    "cacheRoot": "../cache",
+    "mapSourcesPath": "../config/map-sources",
+    "tileMatrixSetsPath": "../config/tile-matrix-sets",
+    "layersPath": "../config/layers"
+}

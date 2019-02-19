@@ -1,0 +1,246 @@
+{
+    "identifier": "reliance-jio",
+    "label": "Reliance JIO Headquarters",
+    "description": "Blueprint of the 6th floor of the building.",
+    "mapSource": "reliance-jio",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "reliance-jio-default-epsg900913",
+            "label": "Reliance Jio 6th Floor",
+            "description": "Blueprint of the 6th floor of the building, in EPSG:900913",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "EPSG:900913:0",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 0,
+                        "maxTileCol": 0
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:1",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 1,
+                        "maxTileCol": 1
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:2",
+                        "minTileRow": 1,
+                        "maxTileRow": 1,
+                        "minTileCol": 2,
+                        "maxTileCol": 2
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:3",
+                        "minTileRow": 3,
+                        "maxTileRow": 3,
+                        "minTileCol": 5,
+                        "maxTileCol": 5
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:4",
+                        "minTileRow": 7,
+                        "maxTileRow": 7,
+                        "minTileCol": 11,
+                        "maxTileCol": 11
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:5",
+                        "minTileRow": 14,
+                        "maxTileRow": 14,
+                        "minTileCol": 22,
+                        "maxTileCol": 22
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:6",
+                        "minTileRow": 28,
+                        "maxTileRow": 28,
+                        "minTileCol": 44,
+                        "maxTileCol": 44
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:7",
+                        "minTileRow": 57,
+                        "maxTileRow": 57,
+                        "minTileCol": 89,
+                        "maxTileCol": 89
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:8",
+                        "minTileRow": 114,
+                        "maxTileRow": 114,
+                        "minTileCol": 179,
+                        "maxTileCol": 179
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:9",
+                        "minTileRow": 228,
+                        "maxTileRow": 228,
+                        "minTileCol": 359,
+                        "maxTileCol": 359
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:10",
+                        "minTileRow": 456,
+                        "maxTileRow": 456,
+                        "minTileCol": 719,
+                        "maxTileCol": 719
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:11",
+                        "minTileRow": 913,
+                        "maxTileRow": 913,
+                        "minTileCol": 1438,
+                        "maxTileCol": 1438
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:12",
+                        "minTileRow": 1826,
+                        "maxTileRow": 1826,
+                        "minTileCol": 2877,
+                        "maxTileCol": 2877
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:13",
+                        "minTileRow": 3653,
+                        "maxTileRow": 3653,
+                        "minTileCol": 5754,
+                        "maxTileCol": 5754
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:14",
+                        "minTileRow": 7307,
+                        "maxTileRow": 7307,
+                        "minTileCol": 11508,
+                        "maxTileCol": 11508
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:15",
+                        "minTileRow": 14615,
+                        "maxTileRow": 14615,
+                        "minTileCol": 23016,
+                        "maxTileCol": 23016
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:16",
+                        "minTileRow": 29231,
+                        "maxTileRow": 29231,
+                        "minTileCol": 46032,
+                        "maxTileCol": 46032
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:17",
+                        "minTileRow": 58463,
+                        "maxTileRow": 58463,
+                        "minTileCol": 92065,
+                        "maxTileCol": 92065
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:18",
+                        "minTileRow": 116926,
+                        "maxTileRow": 116927,
+                        "minTileCol": 184131,
+                        "maxTileCol": 184131
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:19",
+                        "minTileRow": 233853,
+                        "maxTileRow": 233855,
+                        "minTileCol": 368262,
+                        "maxTileCol": 368263
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:20",
+                        "minTileRow": 467706,
+                        "maxTileRow": 467710,
+                        "minTileCol": 736524,
+                        "maxTileCol": 736527
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:21",
+                        "minTileRow": 935412,
+                        "maxTileRow": 935421,
+                        "minTileCol": 1473048,
+                        "maxTileCol": 1473054
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:22",
+                        "minTileRow": 1870824,
+                        "maxTileRow": 1870843,
+                        "minTileCol": 2946097,
+                        "maxTileCol": 2946109
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:23",
+                        "minTileRow": 3741649,
+                        "maxTileRow": 3741687,
+                        "minTileCol": 5892194,
+                        "maxTileCol": 5892218
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:24",
+                        "minTileRow": 7483298,
+                        "maxTileRow": 7483374,
+                        "minTileCol": 11784388,
+                        "maxTileCol": 11784437
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:25",
+                        "minTileRow": 14966596,
+                        "maxTileRow": 14966749,
+                        "minTileCol": 23568777,
+                        "maxTileCol": 23568874
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:26",
+                        "minTileRow": 29933193,
+                        "maxTileRow": 29933498,
+                        "minTileCol": 47137555,
+                        "maxTileCol": 47137748
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:27",
+                        "minTileRow": 59866387,
+                        "maxTileRow": 59866997,
+                        "minTileCol": 94275111,
+                        "maxTileCol": 94275497
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:28",
+                        "minTileRow": 119732775,
+                        "maxTileRow": 119733995,
+                        "minTileCol": 188550223,
+                        "maxTileCol": 188550994
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:29",
+                        "minTileRow": 239465550,
+                        "maxTileRow": 239467990,
+                        "minTileCol": 377100446,
+                        "maxTileCol": 377101988
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:30",
+                        "minTileRow": 478931100,
+                        "maxTileRow": 478935980,
+                        "minTileCol": 754200893,
+                        "maxTileCol": 754203976
+                    }
+                ]
+            },
+            "minZoom": 13,
+            "maxZoom": 22
+        }
+    ],
+    "wgs84Extent": [
+        72.86555457393831,
+        19.06246598483806,
+        72.86658804513038,
+        19.06401244764659
+    ]
+}
