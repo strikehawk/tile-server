@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "reliance-6th-floor-light",
+    "cacheIdentifier": "reliance-6th-floor-light-epsg900913",
+    "mapSource": "reliance-6th-floor-light",
+    "startZoom": 6,
+    "endZoom": 22,
+    "bbox": {
+        "lowerCorner": [72.86554, 19.06246598483806],
+        "upperCorner": [72.86658804513038, 19.06401244764659],
+        "crs": "EPSG:4326"
+    }
+}

@@ -1,0 +1,12 @@
+﻿{
+    "identifier": "reliance-6th-floor-light",
+    "label": "Reliance Jio Headquarters - Light style",
+    "type": "WMS",
+    "version": "1.3.0",
+    "url": "http://localhost:8080/geoserver/reliance-6th-floor/wms",
+    "layers": "reliance-6th-floor:reliance-6th-floor-light",
+    "additionalParameters": "&transparent=true",
+    "supportedFormats": [
+        "image/png"
+    ]
+}

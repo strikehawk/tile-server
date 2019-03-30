@@ -1,6 +1,3 @@
-import fs from "fs-extra";
-import path from "path";
-
 import { ServiceCatalog } from "../src/services/service-catalog";
 import { TileMatrixSetService } from "../src/services/tile-matrix-set.service";
 import { TileMatrixSet } from "../src/ogc/tile-matrix-set";

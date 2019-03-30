@@ -1,8 +1,9 @@
 import { ComputingService } from "../src/services/computing.service";
+import { SrsService } from "../src/services/srs.service";
 
 describe("ComputingService", () => {
     it("can convert a WGS84 extent", () => {
-        const svc: ComputingService = new ComputingService();
+        const svc: ComputingService = new ComputingService(new SrsService());
 
         const wgs84Extent: [number, number, number, number] = [-99.27, 19.31, -98.97, 19.53];
         const result: [number, number, number, number] = svc.convertWgs84Extent(wgs84Extent, "EPSG:3857");

@@ -1,6 +1,14 @@
 export class BoundingBox {
     public readonly srs: string;
+
+    /**
+     * The lower-left corner.
+     */
     public lowerCorner: tiles.GeoLocation;
+
+    /**
+     * The upper-right corner.
+     */
     public upperCorner: tiles.GeoLocation;
 
     /**
