@@ -1,0 +1,127 @@
+{
+    "identifier": "oman-muscat",
+    "label": "Oman Muscat - Landsat 8",
+    "description": "Oman Muscat - Landsat 8.",
+    "mapSource": "oman-muscat",
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "oman-muscat-png",
+            "label": "Oman Muscat - PNG",
+            "description": "Oman Muscat - Landsat 8.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png",
+            "tileMatrixSetLimits": {
+                "tileMatrixLimits": [
+                    {
+                        "tileMatrix": "EPSG:900913:1",
+                        "minTileRow": 0,
+                        "maxTileRow": 0,
+                        "minTileCol": 1,
+                        "maxTileCol": 1
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:2",
+                        "minTileRow": 1,
+                        "maxTileRow": 1,
+                        "minTileCol": 2,
+                        "maxTileCol": 2
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:3",
+                        "minTileRow": 3,
+                        "maxTileRow": 3,
+                        "minTileCol": 5,
+                        "maxTileCol": 5
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:4",
+                        "minTileRow": 6,
+                        "maxTileRow": 6,
+                        "minTileCol": 10,
+                        "maxTileCol": 10
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:5",
+                        "minTileRow": 13,
+                        "maxTileRow": 13,
+                        "minTileCol": 20,
+                        "maxTileCol": 21
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:6",
+                        "minTileRow": 27,
+                        "maxTileRow": 27,
+                        "minTileCol": 41,
+                        "maxTileCol": 42
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:7",
+                        "minTileRow": 54,
+                        "maxTileRow": 55,
+                        "minTileCol": 83,
+                        "maxTileCol": 85
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:8",
+                        "minTileRow": 109,
+                        "maxTileRow": 111,
+                        "minTileCol": 167,
+                        "maxTileCol": 170
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:9",
+                        "minTileRow": 218,
+                        "maxTileRow": 223,
+                        "minTileCol": 335,
+                        "maxTileCol": 340
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:10",
+                        "minTileRow": 436,
+                        "maxTileRow": 447,
+                        "minTileCol": 670,
+                        "maxTileCol": 680
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:11",
+                        "minTileRow": 873,
+                        "maxTileRow": 895,
+                        "minTileCol": 1340,
+                        "maxTileCol": 1360
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:12",
+                        "minTileRow": 1746,
+                        "maxTileRow": 1790,
+                        "minTileCol": 2680,
+                        "maxTileCol": 2720
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:13",
+                        "minTileRow": 3492,
+                        "maxTileRow": 3581,
+                        "minTileCol": 5361,
+                        "maxTileCol": 5440
+                    },
+                    {
+                        "tileMatrix": "EPSG:900913:14",
+                        "minTileRow": 6985,
+                        "maxTileRow": 7162,
+                        "minTileCol": 10723,
+                        "maxTileCol": 10881
+                    }
+                ]
+            },
+            "minZoom": 1,
+            "maxZoom": 14
+        }
+    ],
+    "wgs84Extent": [
+        55.62666109628654,
+        22.048246268173493,
+        59.10392281659011,
+        25.602799801265267
+    ]
+}

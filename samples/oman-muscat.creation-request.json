@@ -1,0 +1,20 @@
+{
+    "identifier": "oman-muscat",
+    "label": "Oman Muscat - Landsat 8",
+    "description": "Oman Muscat - Landsat 8.",
+    "mapSource": "oman-muscat",
+    "wgs84Extent": [55.62666109628654, 22.048246268173493, 59.10392281659011, 25.602799801265267],
+    "filePathScheme": "xyz",
+    "caches": [
+        {
+            "identifier": "oman-muscat-png",
+            "label": "Oman Muscat - PNG",
+            "description": "Oman Muscat - Landsat 8.",
+            "tileMatrixSet": "EPSG:900913",
+            "style": "default",
+            "format": "image/png",
+            "minZoom": 1,
+            "maxZoom": 14
+        }
+    ]
+}

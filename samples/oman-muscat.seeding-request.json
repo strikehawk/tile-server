@@ -1,0 +1,12 @@
+{
+    "layerDefinition": "oman-muscat",
+    "cacheIdentifier": "oman-muscat-png",
+    "mapSource": "oman-muscat",
+    "startZoom": 1,
+    "endZoom": 14,
+    "bbox": {
+        "lowerCorner": [55.62666109628654, 22.048246268173493],
+        "upperCorner": [59.10392281659011, 25.602799801265267],
+        "crs": "EPSG:4326"
+    }
+}
